@@ -89,34 +89,37 @@
             
             <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
                 <div class="font-script text-4xl sm:text-5xl text-silver-light mb-2 tracking-wider flex flex-col items-center leading-tight">
-                    <span>Luis</span>
-                    <span class="text-2xl text-silver py-1">&</span>
                     <span>Giuliana</span>
+                    <span class="text-2xl text-silver py-1">&</span>
+                    <span>Luis</span>
                 </div>
-                <p class="text-gray-300 text-xs tracking-widest uppercase mb-8">Nuestra Boda Religiosa</p>
+                <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-lg border border-silver/30">
+  <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
+</div>
+
                 <!-- Reproductor Minimalista de Música -->
-<div style="text-align: center; margin: 15px auto; max-width: 280px; padding: 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(209, 213, 219, 0.3);">
-  <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; color: #d1d5db; margin-bottom: 6px; letter-spacing: 1px;">
+<div style="text-align: center; margin: 15px auto; max-width: 280px; padding: 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(229, 229, 229, 0.3);">
+  <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; color: #E5E5E5; margin-bottom: 6px; letter-spacing: 1px;">
     Dale play a nuestra canción
   </p>
   
   <!-- Barra de progreso decorativa -->
-  <div style="width: 80%; height: 2px; background-color: rgba(209, 213, 219, 0.3); margin: 0 auto 10px auto; position: relative; border-radius: 2px;">
-    <div id="progresoCancion" style="width: 0%; height: 100%; background-color: #d1d5db; border-radius: 2px; transition: width 0.3s;"></div>
+  <div style="width: 80%; height: 2px; background-color: rgba(229, 229, 229, 0.3); margin: 0 auto 10px auto; position: relative; border-radius: 2px;">
+    <div id="progresoCancion" style="width: 0%; height: 100%; background-color: #E5E5E5; border-radius: 2px; transition: width 0.3s;"></div>
   </div>
 
-  <!-- Controles pequeños de reproducción -->
-  <div style="display: flex; align-items: center; justify-content: center; gap: 18px; color: #d1d5db; font-size: 14px;">
-    <span style="cursor: pointer; opacity: 0.7;">🔀</span>
-    <span style="cursor: pointer; opacity: 0.7;">⏮</span>
+  <!-- Controles en tono plateado -->
+  <div style="display: flex; align-items: center; justify-content: center; gap: 18px; color: #E5E5E5; font-size: 13px;">
+    <i class="fa-solid fa-shuffle" style="cursor: pointer; opacity: 0.7;"></i>
+    <i class="fa-solid fa-backward-step" style="cursor: pointer; opacity: 0.7;"></i>
     
     <!-- Botón Play/Pause principal -->
-    <button id="btnPlayPlayer" onclick="toggleAudio()" style="background: #d1d5db; color: #495470; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      ▶
+    <button id="btnPlayPlayer" onclick="toggleAudio()" style="background: #E5E5E5; color: #14213D; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+      <i id="iconoPlay" class="fa-solid fa-play"></i>
     </button>
     
-    <span style="cursor: pointer; opacity: 0.7;">⏭</span>
-    <span style="cursor: pointer; opacity: 0.7;">🔁</span>
+    <i class="fa-solid fa-forward-step" style="cursor: pointer; opacity: 0.7;"></i>
+    <i class="fa-solid fa-repeat" style="cursor: pointer; opacity: 0.7;"></i>
   </div>
 
   <audio id="musicaBoda" loop src="cancion.mp3"></audio>
@@ -125,15 +128,18 @@
 <script>
   function toggleAudio() {
     var audio = document.getElementById("musicaBoda");
-    var btn = document.getElementById("btnPlayPlayer");
+    var icono = document.getElementById("iconoPlay");
     var progreso = document.getElementById("progresoCancion");
 
     if (audio.paused) {
+      if (audio.currentTime < 21) {
+        audio.currentTime = 21;
+      }
       audio.play();
-      btn.innerHTML = "⏸";
+      icono.className = "fa-solid fa-pause";
     } else {
       audio.pause();
-      btn.innerHTML = "▶";
+      icono.className = "fa-solid fa-play";
     }
 
     audio.ontimeupdate = function() {
