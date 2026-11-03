@@ -72,29 +72,6 @@
     </style>
 </head>
 <body class="bg-gray-900 font-sans text-gray-800 antialiased selection:bg-silver selection:text-customBlueDark flex justify-center min-h-screen">
-    <!-- Botón reproductor de música -->
-<div style="text-align: center; padding: 15px 0; position: relative; z-index: 100;">
-  <button id="btnAudio" onclick="toggleAudio()" style="background-color: #495470; color: #ffffff; border: 1px solid #d1d5db; padding: 10px 18px; border-radius: 20px; font-size: 14px; cursor: pointer; font-family: 'Montserrat', sans-serif;">
-    🎵 Dale play a nuestra canción
-  </button>
-  <audio id="musicaBoda" loop src="cancion.mp3"></audio>
-</div>
-
-<script>
-  function toggleAudio() {
-    var audio = document.getElementById("musicaBoda");
-    var btn = document.getElementById("btnAudio");
-    if (audio.paused) {
-      audio.play();
-      btn.innerHTML = "⏸️ Pausar canción";
-    } else {
-      audio.pause();
-      btn.innerHTML = "🎵 Dale play a nuestra canción";
-    }
-  }
-</script>
-
-
     <!-- Main Container Mockup -->
     <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden pb-12 my-0 sm:my-4 sm:rounded-3xl border-0 sm:border border-silver/40">
 
@@ -115,6 +92,57 @@
                     <span>Giuliana</span>
                 </div>
                 <p class="text-gray-300 text-xs tracking-widest uppercase mb-8">Nuestra Boda Religiosa</p>
+                <!-- Reproductor Minimalista de Música -->
+<div style="text-align: center; margin: 15px auto; max-width: 280px; padding: 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(209, 213, 219, 0.3);">
+  <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; color: #d1d5db; margin-bottom: 6px; letter-spacing: 1px;">
+    Dale play a nuestra canción
+  </p>
+  
+  <!-- Barra de progreso decorativa -->
+  <div style="width: 80%; height: 2px; background-color: rgba(209, 213, 219, 0.3); margin: 0 auto 10px auto; position: relative; border-radius: 2px;">
+    <div id="progresoCancion" style="width: 0%; height: 100%; background-color: #d1d5db; border-radius: 2px; transition: width 0.3s;"></div>
+  </div>
+
+  <!-- Controles pequeños de reproducción -->
+  <div style="display: flex; align-items: center; justify-content: center; gap: 18px; color: #d1d5db; font-size: 14px;">
+    <span style="cursor: pointer; opacity: 0.7;">🔀</span>
+    <span style="cursor: pointer; opacity: 0.7;">⏮</span>
+    
+    <!-- Botón Play/Pause principal -->
+    <button id="btnPlayPlayer" onclick="toggleAudio()" style="background: #d1d5db; color: #495470; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+      ▶
+    </button>
+    
+    <span style="cursor: pointer; opacity: 0.7;">⏭</span>
+    <span style="cursor: pointer; opacity: 0.7;">🔁</span>
+  </div>
+
+  <audio id="musicaBoda" loop src="cancion.mp3"></audio>
+</div>
+
+<script>
+  function toggleAudio() {
+    var audio = document.getElementById("musicaBoda");
+    var btn = document.getElementById("btnPlayPlayer");
+    var progreso = document.getElementById("progresoCancion");
+
+    if (audio.paused) {
+      audio.play();
+      btn.innerHTML = "⏸";
+    } else {
+      audio.pause();
+      btn.innerHTML = "▶";
+    }
+
+    audio.ontimeupdate = function() {
+      if (audio.duration) {
+        var pct = (audio.currentTime / audio.duration) * 100;
+        progreso.style.width = pct + "%";
+      }
+    };
+  }
+</script>
+
 
                 <!-- Interactive Wax Seal in Silver -->
                 <div class="relative my-4 cursor-pointer" onclick="openInvitation()">
