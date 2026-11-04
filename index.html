@@ -133,15 +133,15 @@
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
-    <!-- SECCIÓN HÉROE INICIAL (MODELO: FOTO DE FONDO OSCURECIDA CON TEXTO SUPERPUESTO) -->
+    <!-- SECCIÓN HÉROE INICIAL (FOTO DE FONDO OSCURECIDA CON TEXTO SUPERPUESTO) -->
     <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 reveal overflow-hidden">
       <!-- Foto de pareja como fondo completo -->
       <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover z-0">
       
-      <!-- Capa de oscurecimiento (Overlay) para resaltar el texto superpuesto -->
+      <!-- Capa de oscurecimiento (Overlay) -->
       <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/70 via-customBlue/60 to-customBlueDark/90 z-10"></div>
 
-      <!-- Contenido Superpuesto (Nombres + Frase) -->
+      <!-- Contenido Superpuesto -->
       <div class="relative z-20 flex flex-col items-center justify-center space-y-4">
         <div class="font-script text-6xl sm:text-7xl text-silver-light drop-shadow-lg flex flex-col items-center gap-1">
           <span>Giuliana</span>
@@ -151,12 +151,12 @@
 
         <div class="w-24 h-[1px] bg-silver/50 my-2"></div>
 
-        <!-- Frase de portada -->
-        <p class="font-serif italic text-lg sm:text-xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md">
+        <!-- Frase de portada (TAMAÑO AUMENTADO) -->
+        <p class="font-serif italic text-xl sm:text-2xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium">
           "Te elijo hoy y por el resto de mi vida"
         </p>
 
-        <!-- Indicador de desplazamiento (Flechita hacia abajo) -->
+        <!-- Indicador de desplazamiento -->
         <div class="pt-8 animate-bounce">
           <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
         </div>
@@ -170,32 +170,39 @@
       <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
         <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
-        <div class="space-y-4 my-4 font-serif text-[15px] sm:text-base text-gray-700 leading-relaxed">
+        <!-- NOMBRES DE LOS PADRES (TAMAÑO AUMENTADO) -->
+        <div class="space-y-4 my-4 font-serif text-base sm:text-lg text-gray-800 leading-relaxed">
           <div>
             <p class="text-xs text-gray-400 italic mb-0.5">Padres de la Novia:</p>
-            <p class="font-semibold text-customBlue">Doña María Yolanda Granada Rozas</p>
-            <p class="font-semibold text-customBlue">& Don José Guido Rodriguez Zuniga</p>
+            <p class="font-bold text-customBlue">Doña María Yolanda Granada Rozas</p>
+            <p class="font-bold text-customBlue">& Don José Guido Rodriguez Zuniga</p>
           </div>
 
           <div class="w-12 h-[1px] bg-silver/50 mx-auto my-2"></div>
 
           <div>
             <p class="text-xs text-gray-400 italic mb-0.5">Padres del Novio:</p>
-            <p class="font-semibold text-customBlue">Doña Rosa Yeni Soto Solís</p>
-            <p class="font-semibold text-customBlue">& Don José Jesús Mejia Torres</p>
+            <p class="font-bold text-customBlue">Doña Rosa Yeni Soto Solís</p>
+            <p class="font-bold text-customBlue">& Don José Jesús Mejia Torres</p>
           </div>
         </div>
       </div>
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <!-- Frase Personalizada -->
-      <p class="font-serif italic text-gray-600 text-base leading-relaxed px-2 reveal">
+      <!-- Frase Personalizada (TAMAÑO AUMENTADO) -->
+      <p class="font-serif italic text-gray-700 text-lg sm:text-xl leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
+      <!-- ÍCONO MINIMALISTA DE ANILLOS / AROS DE COMPROMISO -->
+      <div class="my-6 flex justify-center items-center gap-2 text-customBlue/70 text-2xl reveal">
+        <i class="fa-solid fa-ring"></i>
+        <i class="fa-solid fa-ring -ml-3 opacity-80"></i>
+      </div>
+
       <!-- Foto Familiar -->
-      <div class="mt-8 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 reveal">
+      <div class="mt-4 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 reveal">
         <img src="29521.jpg" alt="Familia Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
       </div>
     </section>
