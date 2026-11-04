@@ -60,7 +60,7 @@
       transform: scale(1.08) rotate(5deg);
     }
     
-    /* EFECTO DE APARICIÓN / DESAPARICIÓN PAUSADO Y BIDIRECCIONAL */
+    /* EFECTO DE APARICIÓN EN SCROLL (1.4s) */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -72,7 +72,46 @@
       transform: translateY(0);
     }
 
-    /* TEXTURA RUGOSA Y TONO BLANCO PERLA / PAPEL PRENSADO LUXURY (MODELO GIULIANA) */
+    /* ANIMACIONES ESPECÍFICAS PANTALLA HÉROE */
+    .anim-giuliana {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .anim-ampersand {
+      opacity: 0;
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .anim-luis {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .anim-line {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .anim-phrase {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .anim-arrow {
+      opacity: 0;
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* ESTADO ACTIVO AL ABRIR EL SOBRE */
+    .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
+    .hero-active .anim-ampersand { opacity: 1; }
+    .hero-active .anim-luis { opacity: 1; transform: translateX(0); }
+    .hero-active .anim-line { opacity: 1; transform: scaleX(1); }
+    .hero-active .anim-phrase { opacity: 1; transform: translateY(0); }
+    .hero-active .anim-arrow { opacity: 1; }
+
+    /* TEXTURA RUGOSA Y TONO BLANCO PERLA / PAPEL PRENSADO LUXURY */
     .luxury-pressed-paper {
       background-color: #f6f5f2;
       background-image: 
@@ -98,35 +137,30 @@
 <body class="bg-customBlue font-sans text-gray-800 antialiased selection:bg-silver selection:text-customBlue">
 
   <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO LUXURY -->
-  <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
+  <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
+    <!-- ==================== ENVELOPE / SCREEN OVERLAY ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
       
       <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
-        <!-- Badge -->
         <span class="inline-block px-3 py-1 bg-silver/10 border border-silver/30 text-silver text-[10px] tracking-widest uppercase rounded-full mb-4">
           <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
         </span>
 
-        <!-- Nombres de los Novios -->
         <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
           <span>Giuliana</span>
           <span class="text-3xl text-silver block my-1">&</span>
           <span>Luis</span>
         </div>
 
-        <!-- Foto de Portada -->
         <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
           <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
         </div>
 
-        <!-- Mensaje de bienvenida -->
         <p class="font-serif italic text-silver/80 text-sm mb-6">
           ¡Nos casamos! Acompáñanos a celebrar este gran día.
         </p>
 
-        <!-- Sello de Cera / Botón de Abrir -->
         <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none">
           <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
             <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue">
@@ -143,40 +177,40 @@
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
-    <!-- SECCIÓN HÉROE INICIAL -->
-    <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 reveal overflow-hidden">
-      <!-- Foto de pareja como fondo completo -->
+    <!-- SECCIÓN HÉROE INICIAL ANIMADA -->
+    <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden" id="heroHeader">
       <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover z-0">
-      
-      <!-- Capa de oscurecimiento (Overlay) -->
       <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/70 via-customBlue/60 to-customBlueDark/90 z-10"></div>
 
-      <!-- Contenido Superpuesto -->
       <div class="relative z-20 flex flex-col items-center justify-center space-y-4">
         <div class="font-script text-6xl sm:text-7xl text-silver-light drop-shadow-lg flex flex-col items-center gap-1">
-          <span>Giuliana</span>
-          <span class="text-3xl text-silver my-1">&</span>
-          <span>Luis</span>
+          <!-- Giuliana: Izquierda -> Derecha -->
+          <span class="anim-giuliana">Giuliana</span>
+          <!-- Ampersand: Fade-in central -->
+          <span class="text-3xl text-silver my-1 anim-ampersand">&</span>
+          <!-- Luis: Derecha -> Izquierda -->
+          <span class="anim-luis">Luis</span>
         </div>
 
-        <div class="w-24 h-[1px] bg-silver/50 my-2"></div>
+        <!-- Línea delgada: Expansión de adentro hacia afuera -->
+        <div class="w-24 h-[1px] bg-silver/50 my-2 anim-line"></div>
 
-        <!-- Frase de portada -->
-        <p class="font-serif italic text-xl sm:text-2xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium">
+        <!-- Frase: Abajo -> Arriba -->
+        <p class="font-serif italic text-xl sm:text-2xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium anim-phrase">
           "Te elijo hoy y por el resto de mi vida"
         </p>
 
-        <!-- Indicador de desplazamiento -->
-        <div class="pt-8 animate-bounce">
-          <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
+        <!-- Indicador de desplazamiento con entrada suave (1.4s) -->
+        <div class="pt-8 anim-arrow">
+          <div class="animate-bounce">
+            <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
-      
-      <!-- Bendición de los Padres -->
       <div class="mb-8 bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm relative z-10 reveal">
         <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
@@ -199,18 +233,15 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <!-- Frase Personalizada -->
       <p class="font-serif italic text-gray-700 text-lg sm:text-xl leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
-      <!-- Íconos de Anillos -->
       <div class="my-6 flex justify-center items-center gap-2 text-customBlue/70 text-2xl reveal">
         <i class="fa-solid fa-ring"></i>
         <i class="fa-solid fa-ring -ml-3 opacity-80"></i>
       </div>
 
-      <!-- Foto Familiar -->
       <div class="mt-4 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 reveal">
         <img src="29521.jpg" alt="Familia Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
       </div>
@@ -218,15 +249,12 @@
 
     <!-- SECTION 2: CUENTA REGRESIVA Y CALENDARIO -->
     <section class="bg-customBlue text-silver py-10 px-6 text-center">
-      
-      <!-- Fecha grande -->
       <div class="mb-6 reveal">
         <span class="text-xs uppercase tracking-widest text-silver/70">Viernes</span>
         <div class="text-5xl font-serif text-silver-light font-bold my-1">04</div>
         <span class="text-xs uppercase tracking-widest text-silver/70">Diciembre 2026</span>
       </div>
 
-      <!-- Reloj digital -->
       <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4 reveal">Faltan</h3>
       <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-10 reveal">
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
@@ -247,7 +275,6 @@
         </div>
       </div>
 
-      <!-- Calendario de Diciembre 2026 -->
       <div class="max-w-xs mx-auto bg-customBlueDark/80 p-5 rounded-2xl border border-silver/20 reveal">
         <h4 class="font-serif text-lg tracking-widest uppercase mb-4 text-silver-light">El Gran Día</h4>
         <p class="text-xs uppercase tracking-widest text-silver/60 mb-3">Diciembre 2026</p>
@@ -301,8 +328,6 @@
 
     <!-- SECTION 3: UBICACIONES / CEREMONIA Y RECEPCIÓN -->
     <section class="px-6 py-10 text-center space-y-6">
-      
-      <!-- Ceremonia Religiosa -->
       <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Ceremonia Religiosa</h3>
@@ -313,7 +338,6 @@
         </a>
       </div>
 
-      <!-- Recepción -->
       <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Recepción</h3>
@@ -335,7 +359,6 @@
     <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
     <section class="px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
-      <!-- TARJETA CÓDIGO DE VESTIMENTA -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <div class="flex items-center justify-center gap-2 text-silver-shine text-2xl mb-2 opacity-90">
           <i class="fa-solid fa-person-dress"></i>
@@ -354,7 +377,6 @@
           Evitar colores: <span class="font-semibold text-white">blanco, ivory, crema, beige, nude</span>
         </p>
 
-        <!-- Paleta de Colores a Evitar -->
         <div class="flex items-center justify-center gap-2.5">
           <div class="w-7 h-7 rounded-full bg-white border-2 border-silver shadow-md" title="Blanco"></div>
           <div class="w-7 h-7 rounded-full bg-[#fffff0] border-2 border-silver/80 shadow-md" title="Ivory"></div>
@@ -366,7 +388,6 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Nota sobre los niños -->
       <div class="p-5 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
@@ -377,7 +398,6 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Mesa de Regalos -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Mesa de Regalos</h3>
@@ -402,7 +422,6 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- TARJETA HORARIO GABRIEL Y JULIÁN -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <div class="flex items-center justify-center text-silver-shine text-xl mb-3 opacity-90">
           <i class="fa-solid fa-moon"></i>
@@ -414,7 +433,6 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Confirmación por WhatsApp -->
       <div class="reveal">
         <i class="fa-solid fa-envelope-open-text text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Confirmar Asistencia</h3>
@@ -434,7 +452,6 @@
 
     <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
     <section class="p-6 text-center border-t border-silver/20 reveal">
-      
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
         <div class="w-1/3 h-full bg-customBlue"></div>
       </div>
@@ -463,15 +480,18 @@
 
   </div>
 
-  <!-- SCRIPT LÓGICO -->
+  <!-- SCRIPT LÓGICO Y ANIMACIONES -->
   <script>
     function openEnvelope() {
       const envelope = document.getElementById('envelopeScreen');
       envelope.style.opacity = '0';
+      
       setTimeout(() => {
         envelope.style.display = 'none';
+        // Activa la animación inicial en la pantalla héroe
+        document.getElementById('mainContainer').classList.add('hero-active');
         checkReveal();
-      }, 1000);
+      }, 800);
       
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
