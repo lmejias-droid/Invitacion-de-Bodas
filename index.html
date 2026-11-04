@@ -60,7 +60,7 @@
       transform: scale(1.08) rotate(5deg);
     }
     
-    /* EFECTO DE APARICIÓN EN SCROLL (1.4s) */
+    /* EFECTO DE APARICIÓN EN SCROLL */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -72,35 +72,35 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES ESPECÍFICAS PANTALLA HÉROE */
+    /* ANIMACIONES ULTRALENTAS PANTALLA HÉROE (4.2 SEGUNDOS) */
     .anim-giuliana {
       opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: translateX(-50px);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1), transform 4.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-ampersand {
       opacity: 0;
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
     }
     .anim-luis {
       opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: translateX(50px);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
     }
     .anim-line {
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, transform 4.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s;
     }
     .anim-phrase {
       opacity: 0;
       transform: translateY(40px);
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s, transform 4.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s;
     }
     .anim-arrow {
       opacity: 0;
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 4.2s cubic-bezier(0.16, 1, 0.3, 1) 2.4s;
     }
 
     /* ESTADO ACTIVO AL ABRIR EL SOBRE */
@@ -200,7 +200,7 @@
           "Te elijo hoy y por el resto de mi vida"
         </p>
 
-        <!-- Indicador de desplazamiento con entrada suave (1.4s) -->
+        <!-- Indicador de desplazamiento con entrada ultralenta -->
         <div class="pt-8 anim-arrow">
           <div class="animate-bounce">
             <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
@@ -488,7 +488,6 @@
       
       setTimeout(() => {
         envelope.style.display = 'none';
-        // Activa la animación inicial en la pantalla héroe
         document.getElementById('mainContainer').classList.add('hero-active');
         checkReveal();
       }, 800);
