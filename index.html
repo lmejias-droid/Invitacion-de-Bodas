@@ -47,21 +47,31 @@
       scroll-behavior: smooth;
     }
     @keyframes pulse-silver {
-      0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.6); }
-      50% { box-shadow: 0 0 18px rgba(229, 229, 229, 0.9); }
+      0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.5); }
+      50% { box-shadow: 0 0 14px rgba(229, 229, 229, 0); }
     }
     .pulse-silver {
       animation: pulse-silver 2s infinite;
     }
     .wax-seal {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .wax-seal:hover {
-      transform: scale(1.1) rotate(4deg);
+      transform: scale(1.08) rotate(5deg);
     }
-    .envelope-flap {
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    
+    /* EFECTO DE APARICIÓN PROGRESIVA (SCROLL REVEAL) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -80,51 +90,57 @@
   <!-- Main Container Mockup -->
   <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
-    <!-- ==================== ENVELOPE / OVERLAY ESTILO SOBRE ==================== -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-between bg-customBlueDark transition-opacity duration-1000 max-w-md mx-auto">
+    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
+    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
       
-      <!-- Solapa en V del Sobre -->
-      <div class="w-full bg-customBlue relative pt-12 pb-24 px-6 flex flex-col items-center shadow-2xl border-b border-silver/10 envelope-flap">
-        
+      <!-- Background Decorative Lines -->
+      <div class="absolute top-0 left-0 w-48 opacity-10 pointer-events-none">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="30" fill="#E5E5E5"/>
+          <path d="M10 80C60 60 110 90 140 150" stroke="#E5E5E5" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
+        <!-- Badge -->
         <span class="inline-block px-3 py-1 bg-silver/10 border border-silver/30 text-silver text-[10px] tracking-widest uppercase rounded-full mb-4">
           <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
         </span>
 
-        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-1 tracking-wide text-center drop-shadow-md">
+        <!-- Nombres de los Novios -->
+        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
           <span>Giuliana</span>
-          <span class="text-3xl text-silver block my-0.5">&</span>
+          <span class="text-3xl text-silver block my-1">&</span>
           <span>Luis</span>
         </div>
 
-        <p class="font-serif italic text-silver/70 text-xs mt-2">¡Nos casamos!</p>
-      </div>
+        <!-- Foto de Portada -->
+        <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
+          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
+        </div>
 
-      <!-- Sello de Cera Plata -->
-      <div class="relative -mt-20 z-20">
+        <!-- Mensaje de bienvenida -->
+        <p class="font-serif italic text-silver/80 text-sm mb-6">
+          ¡Nos casamos! Acompáñanos a celebrar este gran día.
+        </p>
+
+        <!-- Sello de Cera / Botón de Abrir -->
         <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none">
-          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-2xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
-            <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue bg-silver-light/90">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
+            <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue">
               <i class="fa-solid fa-envelope-open text-xl mb-0.5 group-hover:scale-110 transition-transform"></i>
               <span class="text-[9px] font-bold tracking-widest uppercase">Abrir</span>
             </div>
           </div>
+          <span class="text-[11px] text-silver/70 mt-3 font-light tracking-wide">Haz clic en el sello para abrir la invitación</span>
         </button>
+
+        <p class="text-[10px] text-silver/40 tracking-widest uppercase mt-4">04 . 12 . 2026</p>
       </div>
-
-      <!-- Parte Inferior del Sobre -->
-      <div class="w-full text-center pb-10 px-6 flex flex-col items-center mt-auto">
-        <div class="my-4 mx-auto max-w-[220px] rounded-xl overflow-hidden shadow-2xl border border-silver/30">
-          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
-        </div>
-
-        <p class="text-[11px] text-silver/70 font-light tracking-wide mb-1">Haz clic en el sello para abrir la invitación</p>
-        <p class="text-[10px] text-silver/40 tracking-widest uppercase">04 . 12 . 2026</p>
-      </div>
-
     </div>
 
-    <!-- ==================== ENCABEZADO DE LA INVITACIÓN ==================== -->
-    <header class="bg-customBlue text-silver text-center py-10 px-6 relative">
+    <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
+    <header class="bg-customBlue text-silver text-center py-10 px-6 relative reveal">
       <div class="font-script text-4xl text-silver-light mb-1">Giuliana & Luis</div>
       <div class="text-xs uppercase tracking-widest text-silver/70 font-light flex items-center justify-center gap-2">
         <span class="w-12 h-[1px] bg-silver/40"></span>
@@ -136,7 +152,8 @@
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
       
-      <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10">
+      <!-- Bendición de los Padres -->
+      <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
         <p class="text-xs uppercase tracking-widest text-customBlueLight font-semibold mb-3">Con la bendición de nuestros padres</p>
         
         <div class="space-y-4 my-4 font-serif text-sm text-gray-700">
@@ -156,13 +173,15 @@
         </div>
       </div>
 
-      <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4"></div>
+      <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <p class="font-serif italic text-gray-600 text-sm leading-relaxed px-2">
+      <!-- Frase Personalizada -->
+      <p class="font-serif italic text-gray-600 text-sm leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
-      <div class="mt-8 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30">
+      <!-- Foto Familiar -->
+      <div class="mt-8 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 reveal">
         <img src="29521.jpg" alt="Familia Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
       </div>
     </section>
@@ -170,14 +189,16 @@
     <!-- SECTION 2: CUENTA REGRESIVA Y CALENDARIO -->
     <section class="bg-customBlue text-silver py-10 px-6 text-center">
       
-      <div class="mb-6">
+      <!-- Fecha grande -->
+      <div class="mb-6 reveal">
         <span class="text-xs uppercase tracking-widest text-silver/70">Viernes</span>
         <div class="text-5xl font-serif text-silver-light font-bold my-1">04</div>
         <span class="text-xs uppercase tracking-widest text-silver/70">Diciembre 2026</span>
       </div>
 
-      <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4">Faltan</h3>
-      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-10">
+      <!-- Reloj digital -->
+      <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4 reveal">Faltan</h3>
+      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-10 reveal">
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
           <span id="days" class="block font-bold text-xl text-silver-shine">00</span>
           <span class="text-[9px] uppercase text-silver/60">Días</span>
@@ -197,7 +218,7 @@
       </div>
 
       <!-- Calendario de Diciembre 2026 -->
-      <div class="max-w-xs mx-auto bg-customBlueDark/80 p-5 rounded-2xl border border-silver/20">
+      <div class="max-w-xs mx-auto bg-customBlueDark/80 p-5 rounded-2xl border border-silver/20 reveal">
         <h4 class="font-serif text-lg tracking-widest uppercase mb-4 text-silver-light">El Gran Día</h4>
         <p class="text-xs uppercase tracking-widest text-silver/60 mb-3">Diciembre 2026</p>
         
@@ -252,7 +273,7 @@
     <section class="px-6 py-10 text-center space-y-6">
       
       <!-- Ceremonia Religiosa -->
-      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm">
+      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Ceremonia Religiosa</h3>
         <p class="text-xs font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
@@ -263,7 +284,7 @@
       </div>
 
       <!-- Recepción -->
-      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm">
+      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Recepción</h3>
         <p class="text-xs font-semibold text-customBlue my-1">Hora: 4:30 PM (Hasta las 10:00 PM)</p>
@@ -278,7 +299,7 @@
     <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
       <!-- Dress Code -->
-      <div>
+      <div class="reveal">
         <i class="fa-solid fa-user-tie text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Código de Vestimenta</h3>
         <p class="text-xs uppercase tracking-widest text-gray-500 mt-1 font-semibold">Formal / Etiqueta</p>
@@ -292,10 +313,10 @@
         </div>
       </div>
 
-      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
       <!-- Nota sobre los niños -->
-      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-left">
+      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-left reveal">
         <div class="flex items-center gap-2 mb-2 justify-center">
           <i class="fa-solid fa-heart text-customBlue text-base"></i>
           <p class="text-xs font-bold text-customBlue uppercase tracking-wider">Un detalle especial</p>
@@ -305,10 +326,10 @@
         </p>
       </div>
 
-      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
       <!-- Mesa de Regalos -->
-      <div>
+      <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
         <p class="text-xs text-gray-600 my-2 leading-relaxed">
@@ -330,10 +351,10 @@
         </div>
       </div>
 
-      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
       <!-- Confirmación por WhatsApp -->
-      <div>
+      <div class="reveal">
         <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Confirmar Asistencia</h3>
         <p class="text-xs text-gray-600 my-2">Por favor confírmanos tu asistencia vía WhatsApp:</p>
@@ -351,7 +372,7 @@
     </section>
 
     <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
-    <section class="bg-cream p-6 text-center border-t border-silver/20">
+    <section class="bg-cream p-6 text-center border-t border-silver/20 reveal">
       <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
       
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
@@ -389,6 +410,8 @@
       envelope.style.opacity = '0';
       setTimeout(() => {
         envelope.style.display = 'none';
+        // Activar la animación de scroll al abrir
+        checkReveal();
       }, 1000);
       
       const audio = document.getElementById('bgMusic');
@@ -411,6 +434,24 @@
       }
     }
 
+    // Lógica para detectar el Scroll y activar las animaciones de entrada
+    function checkReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 80; // Distancia en pixeles antes de aparecer
+        
+        if (elementTop < windowHeight - elementVisible) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkReveal);
+
+    // Cuenta Regresiva para el 4 de Diciembre de 2026
     const targetDate = new Date('December 4, 2026 15:00:00').getTime();
     setInterval(() => {
       const now = new Date().getTime();
