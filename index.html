@@ -90,7 +90,7 @@
   <!-- Main Container Mockup -->
   <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
+    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL REORDENADA) ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
       
       <!-- Background Decorative Lines -->
@@ -107,15 +107,15 @@
           <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
         </span>
 
-        <!-- Nombres de los Novios -->
-        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
-          <span>Giuliana</span>
-          <span class="text-3xl text-silver block my-1">&</span>
-          <span>Luis</span>
+        <!-- Nombres en disposición vertical escalonada -->
+        <div class="w-full font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md flex flex-col my-2">
+          <span class="text-left pl-2">Giuliana</span>
+          <span class="text-3xl text-silver my-0.5 text-center">&</span>
+          <span class="text-right pr-2">Luis</span>
         </div>
 
         <!-- Foto de Portada -->
-        <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
+        <div class="my-3 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
           <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
         </div>
 
@@ -298,32 +298,32 @@
     <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
     <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
-      <!-- TARJETA CÓDIGO DE VESTIMENTA (RECREACIÓN DE TU MODELO) -->
-      <div class="p-6 bg-cream rounded-2xl border border-silver/40 shadow-sm max-w-xs mx-auto text-center reveal">
+      <!-- TARJETA CÓDIGO DE VESTIMENTA (AHORA EN FONDO AZUL CON LETRAS PLATEADAS/BLANCAS) -->
+      <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <!-- Íconos de Vestimenta Elegante -->
-        <div class="flex items-center justify-center gap-2 text-customBlue text-2xl mb-2 opacity-80">
+        <div class="flex items-center justify-center gap-2 text-silver-shine text-2xl mb-2 opacity-90">
           <i class="fa-solid fa-person-dress"></i>
           <i class="fa-solid fa-user-tie"></i>
         </div>
 
-        <h3 class="font-serif text-xl font-semibold tracking-wider text-customBlue uppercase border-b border-silver/40 pb-2 mb-2">
+        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase border-b border-silver/30 pb-2 mb-2">
           Código de Vestimenta
         </h3>
         
-        <p class="font-serif text-sm tracking-widest text-gray-600 uppercase font-semibold mb-4">
+        <p class="font-serif text-sm tracking-widest text-silver/80 uppercase font-semibold mb-4">
           Formal
         </p>
 
-        <p class="font-serif text-sm text-gray-700 italic mb-4">
-          Evitar colores: <span class="font-semibold text-gray-800">blanco, crema, beige, nude</span>
+        <p class="font-serif text-sm text-silver-shine italic mb-4">
+          Evitar colores: <span class="font-semibold text-white">blanco, crema, beige, nude</span>
         </p>
 
-        <!-- Paleta de Colores a Evitar (CírcuIos) -->
+        <!-- Paleta de Colores a Evitar (Resaltan de forma hermosa sobre azul) -->
         <div class="flex items-center justify-center gap-3">
-          <div class="w-6 h-6 rounded-full bg-white border border-gray-300 shadow-inner" title="Blanco"></div>
-          <div class="w-6 h-6 rounded-full bg-[#fdfbf7] border border-amber-100 shadow-inner" title="Crema"></div>
-          <div class="w-6 h-6 rounded-full bg-[#f5f0eb] border border-amber-200/50 shadow-inner" title="Beige"></div>
-          <div class="w-6 h-6 rounded-full bg-[#e8d5c4] border border-amber-300/40 shadow-inner" title="Nude"></div>
+          <div class="w-7 h-7 rounded-full bg-white border-2 border-silver shadow-md" title="Blanco"></div>
+          <div class="w-7 h-7 rounded-full bg-[#fdfbf7] border-2 border-silver/80 shadow-md" title="Crema"></div>
+          <div class="w-7 h-7 rounded-full bg-[#f5f0eb] border-2 border-silver/80 shadow-md" title="Beige"></div>
+          <div class="w-7 h-7 rounded-full bg-[#e8d5c4] border-2 border-silver/80 shadow-md" title="Nude"></div>
         </div>
       </div>
 
