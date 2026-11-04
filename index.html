@@ -298,18 +298,33 @@
     <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
     <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
-      <!-- Dress Code (Diseño elegante sin estilo de alerta) -->
-      <div class="reveal">
-        <i class="fa-solid fa-user-tie text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Código de Vestimenta</h3>
-        <p class="text-xs uppercase tracking-widest text-gray-500 mt-1 font-semibold">Formal / Etiqueta</p>
-        <p class="text-xs text-gray-600 mt-2 max-w-xs mx-auto">
-          Agradecemos vestir trajes oscuros y vestidos largos.
+      <!-- TARJETA CÓDIGO DE VESTIMENTA (RECREACIÓN DE TU MODELO) -->
+      <div class="p-6 bg-cream rounded-2xl border border-silver/40 shadow-sm max-w-xs mx-auto text-center reveal">
+        <!-- Íconos de Vestimenta Elegante -->
+        <div class="flex items-center justify-center gap-2 text-customBlue text-2xl mb-2 opacity-80">
+          <i class="fa-solid fa-person-dress"></i>
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+
+        <h3 class="font-serif text-xl font-semibold tracking-wider text-customBlue uppercase border-b border-silver/40 pb-2 mb-2">
+          Código de Vestimenta
+        </h3>
+        
+        <p class="font-serif text-sm tracking-widest text-gray-600 uppercase font-semibold mb-4">
+          Formal
         </p>
-        <div class="w-12 h-[1px] bg-silver/40 mx-auto my-3"></div>
-        <p class="font-serif italic text-xs text-gray-500 max-w-xs mx-auto">
-          Les solicitamos amablemente reservar el color blanco y sus derivados (perla, beige o champagne) exclusivamente para la novia.
+
+        <p class="font-serif text-sm text-gray-700 italic mb-4">
+          Evitar colores: <span class="font-semibold text-gray-800">blanco, crema, beige, nude</span>
         </p>
+
+        <!-- Paleta de Colores a Evitar (CírcuIos) -->
+        <div class="flex items-center justify-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-white border border-gray-300 shadow-inner" title="Blanco"></div>
+          <div class="w-6 h-6 rounded-full bg-[#fdfbf7] border border-amber-100 shadow-inner" title="Crema"></div>
+          <div class="w-6 h-6 rounded-full bg-[#f5f0eb] border border-amber-200/50 shadow-inner" title="Beige"></div>
+          <div class="w-6 h-6 rounded-full bg-[#e8d5c4] border border-amber-300/40 shadow-inner" title="Nude"></div>
+        </div>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
@@ -432,7 +447,6 @@
       }
     }
 
-    // Lógica Bidireccional de Scroll (Aparición y Desaparición Pausada)
     function checkReveal() {
       const reveals = document.querySelectorAll('.reveal');
       const windowHeight = window.innerHeight;
@@ -440,9 +454,8 @@
       reveals.forEach(el => {
         const elementTop = el.getBoundingClientRect().top;
         const elementBottom = el.getBoundingClientRect().bottom;
-        const elementVisible = 100; // Margen para dar soltura al efecto
+        const elementVisible = 100;
         
-        // Si el elemento entra en pantalla se muestra, si sale de la vista se oculta
         if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
           el.classList.add('active');
         } else {
@@ -453,7 +466,6 @@
 
     window.addEventListener('scroll', checkReveal);
 
-    // Cuenta Regresiva para el 4 de Diciembre de 2026
     const targetDate = new Date('December 4, 2026 15:00:00').getTime();
     setInterval(() => {
       const now = new Date().getTime();
