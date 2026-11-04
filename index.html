@@ -72,12 +72,12 @@
       transform: translateY(0);
     }
 
-    /* TEXTURA DE PAPEL ARTESANAL PARA EL FONDO CREMA */
-    .paper-texture {
-      background-color: #faf9f6;
-      background-image: radial-gradient(#e2ded6 0.75px, transparent 0.75px), radial-gradient(#e2ded6 0.75px, #faf9f6 0.75px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+    /* TEXTURA REAL DE PAPEL DE ALGODÓN / ACUARELA (DESDE ARCHIVO) */
+    .real-paper-texture {
+      background-color: #faf8f5;
+      background-image: url('textura_papel.jpg');
+      background-repeat: repeat;
+      background-size: 300px auto;
     }
 
     ::-webkit-scrollbar {
@@ -95,8 +95,8 @@
 
 <body class="bg-customBlue font-sans text-gray-800 antialiased selection:bg-silver selection:text-customBlue">
 
-  <!-- Main Container Mockup con TEXTURA DE PAPEL -->
-  <div class="w-full max-w-md paper-texture min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
+  <!-- Main Container Mockup con TEXTURA DE PAPEL REAL -->
+  <div class="w-full max-w-md real-paper-texture min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
     <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
@@ -175,7 +175,7 @@
     <section class="px-6 py-10 text-center relative">
       
       <!-- Bendición de los Padres -->
-      <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
+      <div class="mb-8 bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-md relative z-10 reveal">
         <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
         <div class="space-y-4 my-4 font-serif text-base sm:text-lg text-gray-800 leading-relaxed">
@@ -301,7 +301,7 @@
     <section class="px-6 py-10 text-center space-y-6">
       
       <!-- Ceremonia Religiosa -->
-      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
+      <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Ceremonia Religiosa</h3>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
@@ -312,7 +312,7 @@
       </div>
 
       <!-- Recepción -->
-      <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
+      <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Recepción</h3>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 4:30 PM</p>
@@ -364,8 +364,8 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Nota sobre los niños (Con fondo blanco para destacar sobre el papel) -->
-      <div class="p-5 bg-white rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
+      <!-- Nota sobre los niños -->
+      <div class="p-5 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
         <p class="text-[14px] sm:text-[15px] text-gray-700 leading-relaxed italic max-w-sm">
@@ -384,13 +384,13 @@
         </p>
 
         <div class="grid grid-cols-2 gap-3 mt-4 text-center">
-          <div class="p-3 bg-white rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
+          <div class="p-3 bg-white/90 backdrop-blur-sm rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
             <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
             <p class="text-base font-mono text-gray-800 mt-2 font-bold">986 247 483</p>
           </div>
 
-          <div class="p-3 bg-white rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
+          <div class="p-3 bg-white/90 backdrop-blur-sm rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
             <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Luis</p>
             <p class="text-base font-mono text-gray-800 mt-2 font-bold">961 870 511</p>
