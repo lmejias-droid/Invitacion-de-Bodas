@@ -136,33 +136,6 @@
       </div>
     </header>
 
-    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Estilo tarjeta) -->
-    <section class="bg-cream p-6 text-center border-b border-silver/20">
-      <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
-      
-      <!-- Timeline decorativo -->
-      <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
-        <div class="w-1/3 h-full bg-customBlue"></div>
-      </div>
-
-      <!-- Controles de música -->
-      <div class="flex items-center justify-center gap-5 text-customBlue">
-        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-shuffle"></i></button>
-        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-backward-step"></i></button>
-        
-        <button onclick="toggleAudio()" id="playBtn" class="w-12 h-12 rounded-full bg-customBlue text-silver flex items-center justify-center shadow-lg hover:scale-105 transition">
-          <i class="fa-solid fa-play text-base" id="playIcon"></i>
-        </button>
-        
-        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-forward-step"></i></button>
-        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-repeat"></i></button>
-      </div>
-
-      <audio id="bgMusic" loop preload="metadata">
-        <source src="cancion.mp3" type="audio/mpeg">
-      </audio>
-    </section>
-
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
       
@@ -189,8 +162,9 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4"></div>
 
-      <p class="font-serif italic text-gray-600 text-sm leading-relaxed">
-        "Con la bendición y el amor de Dios. Él escribió nuestra historia, y queremos que seas parte de este hermoso día."
+      <!-- Nueva frase personalizada -->
+      <p class="font-serif italic text-gray-600 text-sm leading-relaxed px-2">
+        "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
       <!-- Foto Familiar -->
@@ -236,7 +210,6 @@
         <p class="text-xs uppercase tracking-widest text-silver/60 mb-3">Diciembre 2026</p>
         
         <div class="grid grid-cols-7 gap-1 text-center text-xs font-mono">
-          <!-- Días semana -->
           <span class="text-silver/40 font-bold">LUN</span>
           <span class="text-silver/40 font-bold">MAR</span>
           <span class="text-silver/40 font-bold">MIÉ</span>
@@ -245,12 +218,10 @@
           <span class="text-silver/40 font-bold">SÁB</span>
           <span class="text-silver/40 font-bold">DOM</span>
 
-          <!-- Espacios del mes (Diciembre 2026 empieza en Martes) -->
           <span></span>
           <span class="py-1">1</span>
           <span class="py-1">2</span>
           <span class="py-1">3</span>
-          <!-- Viernes 04 Destacado con Corazón -->
           <span class="py-1 relative font-bold text-customBlue">
             <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-silver text-customBlue font-bold shadow-md">4</span>
           </span>
@@ -303,7 +274,7 @@
       <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Recepción</h3>
-        <p class="text-xs text-gray-500 my-1">Hora: 7:30 PM</p>
+        <p class="text-xs text-gray-500 my-1">Hora: 7:30 PM (Hasta las 10:00 PM)</p>
         <p class="text-sm text-gray-700 font-medium mb-4">Salón de Recepciones</p>
         <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
@@ -311,7 +282,7 @@
       </div>
     </section>
 
-    <!-- SECTION 4: DETALLES IMPORTANTES (DRESS CODE, NOTAS Y MESA DE REGALOS) -->
+    <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
     <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
       <!-- Dress Code -->
@@ -324,56 +295,89 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
 
-      <!-- Recepción hasta las 10pm & No Niños -->
-      <div class="space-y-4">
-        <div class="p-4 bg-cream rounded-xl border border-silver/30">
-          <i class="fa-solid fa-moon text-customBlue text-lg mb-1"></i>
-          <p class="text-xs font-semibold text-customBlue">Horario de Celebración</p>
-          <p class="text-xs text-gray-600 mt-1">
-            Estaremos festejando junto a ustedes hasta las <strong>10:00 PM</strong>, momento en que Gabriel y Julián irán a descansar. ¡Agradecemos su comprensión!
-          </p>
+      <!-- Nota sobre los niños -->
+      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-left">
+        <div class="flex items-center gap-2 mb-2 justify-center">
+          <i class="fa-solid fa-heart text-customBlue text-base"></i>
+          <p class="text-xs font-bold text-customBlue uppercase tracking-wider">Un detalle especial</p>
         </div>
+        <p class="text-xs text-gray-600 leading-relaxed text-center italic">
+          ¡Amamos a los pequeños de la casa! Sin embargo, para esta ocasión y dado que la recepción será en una terraza de azotea, hemos preparado un evento orientado a adultos (a excepción de nuestros dos bebés). Queremos que los papás y mamás invitados puedan relajarse y disfrutar al máximo de la tarde con nosotros.
+        </p>
+      </div>
 
-        <div class="p-4 bg-cream rounded-xl border border-silver/30">
-          <i class="fa-solid fa-heart text-customBlue text-lg mb-1"></i>
-          <p class="text-xs font-semibold text-customBlue">Evento de Adultos</p>
-          <p class="text-xs text-gray-600 mt-1">
-            Queremos que disfruten una noche de relajación y fiesta. Agradecemos su comprensión al ser una recepción reservada solo para adultos.
-          </p>
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+
+      <!-- Mesa de Regalos con números -->
+      <div>
+        <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
+        <p class="text-xs text-gray-600 my-2 leading-relaxed">
+          Su presencia es nuestro mejor regalo. Si desean realizarnos un detalle en efectivo, pueden hacerlo con mucho cariño a nuestras cuentas:
+        </p>
+
+        <div class="grid grid-cols-2 gap-3 mt-4 text-center">
+          <!-- Plin Giuliana -->
+          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
+            <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
+            <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
+            <p class="text-[11px] font-mono text-gray-700 mt-2 font-bold">986 247 483</p>
+          </div>
+
+          <!-- Yape Luis -->
+          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
+            <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
+            <p class="text-xs font-bold text-customBlue mt-0.5">Luis</p>
+            <p class="text-[11px] font-mono text-gray-700 mt-2 font-bold">961 870 511</p>
+          </div>
         </div>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
 
-      <!-- Mesa de Regalos / Plin y Yape -->
+      <!-- Confirmación por WhatsApp -->
       <div>
-        <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
-        <p class="text-xs text-gray-600 my-2 leading-relaxed">
-          Su presencia es nuestro mejor regalo. Si desean realizarnos un obsequio en efectivo, pueden hacerlo con mucho cariño a nuestras cuentas:
-        </p>
+        <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue">Confirmar Asistencia</h3>
+        <p class="text-xs text-gray-600 my-2"> Por favor confírmanos tu asistencia vía WhatsApp:</p>
 
-        <div class="grid grid-cols-2 gap-3 mt-4 text-left">
-          <!-- Plin Giuliana -->
-          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
-              <p class="text-xs font-bold text-customBlue mt-1">Giuliana</p>
-            </div>
-            <p class="text-[11px] font-mono text-gray-600 mt-2">Buscador Plin</p>
-          </div>
-
-          <!-- Yape Luis -->
-          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
-              <p class="text-xs font-bold text-customBlue mt-1">Luis</p>
-            </div>
-            <p class="text-[11px] font-mono text-gray-600 mt-2">Buscador Yape</p>
-          </div>
+        <div class="flex flex-col sm:flex-row gap-3 mt-4 justify-center">
+          <a href="https://wa.me/51986247483?text=¡Hola%20Giuliana!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-xs font-medium rounded-full shadow hover:bg-emerald-700 transition">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Confirmar con Giuliana
+          </a>
+          <a href="https://wa.me/51961870511?text=¡Hola%20Luis!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-xs font-medium rounded-full shadow hover:bg-emerald-700 transition">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Confirmar con Luis
+          </a>
         </div>
       </div>
 
+    </section>
+
+    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Ubicado al final) -->
+    <section class="bg-cream p-6 text-center border-t border-silver/20">
+      <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
+      
+      <!-- Timeline decorativo -->
+      <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
+        <div class="w-1/3 h-full bg-customBlue"></div>
+      </div>
+
+      <!-- Controles de música (sin texto 0:21) -->
+      <div class="flex items-center justify-center gap-5 text-customBlue">
+        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-backward-step"></i></button>
+        
+        <button onclick="toggleAudio()" id="playBtn" class="w-12 h-12 rounded-full bg-customBlue text-silver flex items-center justify-center shadow-lg hover:scale-105 transition">
+          <i class="fa-solid fa-play text-base" id="playIcon"></i>
+        </button>
+        
+        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <audio id="bgMusic" loop preload="metadata">
+        <source src="cancion.mp3" type="audio/mpeg">
+      </audio>
     </section>
 
     <!-- FOOTER -->
