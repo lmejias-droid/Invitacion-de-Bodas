@@ -60,11 +60,11 @@
       transform: scale(1.08) rotate(5deg);
     }
     
-    /* EFECTO DE APARICIÓN PROGRESIVA (SCROLL REVEAL) */
+    /* EFECTO DE APARICIÓN / DESAPARICIÓN PAUSADO Y BIDIRECCIONAL */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(40px);
+      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
       will-change: opacity, transform;
     }
     .reveal.active {
@@ -298,19 +298,18 @@
     <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
     <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
-      <!-- Dress Code -->
+      <!-- Dress Code (Diseño elegante sin estilo de alerta) -->
       <div class="reveal">
         <i class="fa-solid fa-user-tie text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Código de Vestimenta</h3>
         <p class="text-xs uppercase tracking-widest text-gray-500 mt-1 font-semibold">Formal / Etiqueta</p>
-        <p class="text-xs text-gray-600 mt-2 max-w-xs mx-auto italic">
-          Agradecemos vestir trajes oscuros y vestidos largos. 
+        <p class="text-xs text-gray-600 mt-2 max-w-xs mx-auto">
+          Agradecemos vestir trajes oscuros y vestidos largos.
         </p>
-        <div class="mt-2 p-2 bg-rose-50 rounded-lg border border-rose-100 inline-block">
-          <p class="text-[11px] text-rose-800 font-medium">
-            <i class="fa-solid fa-circle-exclamation mr-1"></i> Por favor, evitar el uso de color blanco o derivados (perla, beige o champagne).
-          </p>
-        </div>
+        <div class="w-12 h-[1px] bg-silver/40 mx-auto my-3"></div>
+        <p class="font-serif italic text-xs text-gray-500 max-w-xs mx-auto">
+          Les solicitamos amablemente reservar el color blanco y sus derivados (perla, beige o champagne) exclusivamente para la novia.
+        </p>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
@@ -410,7 +409,6 @@
       envelope.style.opacity = '0';
       setTimeout(() => {
         envelope.style.display = 'none';
-        // Activar la animación de scroll al abrir
         checkReveal();
       }, 1000);
       
@@ -434,17 +432,21 @@
       }
     }
 
-    // Lógica para detectar el Scroll y activar las animaciones de entrada
+    // Lógica Bidireccional de Scroll (Aparición y Desaparición Pausada)
     function checkReveal() {
       const reveals = document.querySelectorAll('.reveal');
       const windowHeight = window.innerHeight;
       
       reveals.forEach(el => {
         const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 80; // Distancia en pixeles antes de aparecer
+        const elementBottom = el.getBoundingClientRect().bottom;
+        const elementVisible = 100; // Margen para dar soltura al efecto
         
-        if (elementTop < windowHeight - elementVisible) {
+        // Si el elemento entra en pantalla se muestra, si sale de la vista se oculta
+        if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
           el.classList.add('active');
+        } else {
+          el.classList.remove('active');
         }
       });
     }
