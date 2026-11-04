@@ -72,6 +72,14 @@
       transform: translateY(0);
     }
 
+    /* TEXTURA DE PAPEL ARTESANAL PARA EL FONDO CREMA */
+    .paper-texture {
+      background-color: #faf9f6;
+      background-image: radial-gradient(#e2ded6 0.75px, transparent 0.75px), radial-gradient(#e2ded6 0.75px, #faf9f6 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -87,8 +95,8 @@
 
 <body class="bg-customBlue font-sans text-gray-800 antialiased selection:bg-silver selection:text-customBlue">
 
-  <!-- Main Container Mockup -->
-  <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
+  <!-- Main Container Mockup con TEXTURA DE PAPEL -->
+  <div class="w-full max-w-md paper-texture min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
     <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
@@ -133,7 +141,7 @@
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
-    <!-- SECCIÓN HÉROE INICIAL (FOTO DE FONDO OSCURECIDA CON TEXTO SUPERPUESTO) -->
+    <!-- SECCIÓN HÉROE INICIAL -->
     <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 reveal overflow-hidden">
       <!-- Foto de pareja como fondo completo -->
       <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover z-0">
@@ -151,7 +159,7 @@
 
         <div class="w-24 h-[1px] bg-silver/50 my-2"></div>
 
-        <!-- Frase de portada (TAMAÑO AUMENTADO) -->
+        <!-- Frase de portada -->
         <p class="font-serif italic text-xl sm:text-2xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium">
           "Te elijo hoy y por el resto de mi vida"
         </p>
@@ -170,7 +178,6 @@
       <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
         <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
-        <!-- NOMBRES DE LOS PADRES (TAMAÑO AUMENTADO) -->
         <div class="space-y-4 my-4 font-serif text-base sm:text-lg text-gray-800 leading-relaxed">
           <div>
             <p class="text-xs text-gray-400 italic mb-0.5">Padres de la Novia:</p>
@@ -190,12 +197,12 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <!-- Frase Personalizada (TAMAÑO AUMENTADO) -->
+      <!-- Frase Personalizada -->
       <p class="font-serif italic text-gray-700 text-lg sm:text-xl leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
-      <!-- ÍCONO MINIMALISTA DE ANILLOS / AROS DE COMPROMISO -->
+      <!-- Íconos de Anillos -->
       <div class="my-6 flex justify-center items-center gap-2 text-customBlue/70 text-2xl reveal">
         <i class="fa-solid fa-ring"></i>
         <i class="fa-solid fa-ring -ml-3 opacity-80"></i>
@@ -324,7 +331,7 @@
     </section>
 
     <!-- SECTION 4: DETALLES IMPORTANTES Y CONFIRMACIÓN -->
-    <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
+    <section class="px-6 py-10 text-center border-t border-silver/20 space-y-8">
       
       <!-- TARJETA CÓDIGO DE VESTIMENTA -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
@@ -357,8 +364,8 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Nota sobre los niños -->
-      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center">
+      <!-- Nota sobre los niños (Con fondo blanco para destacar sobre el papel) -->
+      <div class="p-5 bg-white rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
         <p class="text-[14px] sm:text-[15px] text-gray-700 leading-relaxed italic max-w-sm">
@@ -377,13 +384,13 @@
         </p>
 
         <div class="grid grid-cols-2 gap-3 mt-4 text-center">
-          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
+          <div class="p-3 bg-white rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
             <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
             <p class="text-base font-mono text-gray-800 mt-2 font-bold">986 247 483</p>
           </div>
 
-          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
+          <div class="p-3 bg-white rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
             <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Luis</p>
             <p class="text-base font-mono text-gray-800 mt-2 font-bold">961 870 511</p>
@@ -424,7 +431,7 @@
     </section>
 
     <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
-    <section class="bg-cream p-6 text-center border-t border-silver/20 reveal">
+    <section class="p-6 text-center border-t border-silver/20 reveal">
       
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
         <div class="w-1/3 h-full bg-customBlue"></div>
