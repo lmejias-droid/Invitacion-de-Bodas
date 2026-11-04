@@ -47,17 +47,20 @@
       scroll-behavior: smooth;
     }
     @keyframes pulse-silver {
-      0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.5); }
-      50% { box-shadow: 0 0 14px rgba(229, 229, 229, 0); }
+      0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.6); }
+      50% { box-shadow: 0 0 18px rgba(229, 229, 229, 0.9); }
     }
     .pulse-silver {
       animation: pulse-silver 2s infinite;
     }
     .wax-seal {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .wax-seal:hover {
-      transform: scale(1.08) rotate(5deg);
+      transform: scale(1.1) rotate(4deg);
+    }
+    .envelope-flap {
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -77,53 +80,47 @@
   <!-- Main Container Mockup -->
   <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY ==================== -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
+    <!-- ==================== ENVELOPE / OVERLAY ESTILO SOBRE ==================== -->
+    <div id="envelopeScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-between bg-customBlueDark transition-opacity duration-1000 max-w-md mx-auto">
       
-      <!-- Background Decorative Lines -->
-      <div class="absolute top-0 left-0 w-48 opacity-10 pointer-events-none">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="30" fill="#E5E5E5"/>
-          <path d="M10 80C60 60 110 90 140 150" stroke="#E5E5E5" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
-        <!-- Badge -->
+      <!-- Solapa en V del Sobre -->
+      <div class="w-full bg-customBlue relative pt-12 pb-24 px-6 flex flex-col items-center shadow-2xl border-b border-silver/10 envelope-flap">
+        
         <span class="inline-block px-3 py-1 bg-silver/10 border border-silver/30 text-silver text-[10px] tracking-widest uppercase rounded-full mb-4">
           <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
         </span>
 
-        <!-- Nombres de los Novios -->
-        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
+        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-1 tracking-wide text-center drop-shadow-md">
           <span>Giuliana</span>
-          <span class="text-3xl text-silver block my-1">&</span>
+          <span class="text-3xl text-silver block my-0.5">&</span>
           <span>Luis</span>
         </div>
 
-        <!-- Foto de Portada -->
-        <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
-          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
-        </div>
+        <p class="font-serif italic text-silver/70 text-xs mt-2">¡Nos casamos!</p>
+      </div>
 
-        <!-- Mensaje de bienvenida -->
-        <p class="font-serif italic text-silver/80 text-sm mb-6">
-          ¡Nos casamos! Acompáñanos a celebrar este gran día.
-        </p>
-
-        <!-- Sello de Cera / Botón de Abrir -->
+      <!-- Sello de Cera Plata -->
+      <div class="relative -mt-20 z-20">
         <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none">
-          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
-            <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-2xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
+            <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue bg-silver-light/90">
               <i class="fa-solid fa-envelope-open text-xl mb-0.5 group-hover:scale-110 transition-transform"></i>
               <span class="text-[9px] font-bold tracking-widest uppercase">Abrir</span>
             </div>
           </div>
-          <span class="text-[11px] text-silver/70 mt-3 font-light tracking-wide">Haz clic en el sello para abrir la invitación</span>
         </button>
-
-        <p class="text-[10px] text-silver/40 tracking-widest uppercase mt-4">04 . 12 . 2026</p>
       </div>
+
+      <!-- Parte Inferior del Sobre -->
+      <div class="w-full text-center pb-10 px-6 flex flex-col items-center mt-auto">
+        <div class="my-4 mx-auto max-w-[220px] rounded-xl overflow-hidden shadow-2xl border border-silver/30">
+          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
+        </div>
+
+        <p class="text-[11px] text-silver/70 font-light tracking-wide mb-1">Haz clic en el sello para abrir la invitación</p>
+        <p class="text-[10px] text-silver/40 tracking-widest uppercase">04 . 12 . 2026</p>
+      </div>
+
     </div>
 
     <!-- ==================== ENCABEZADO DE LA INVITACIÓN ==================== -->
@@ -139,7 +136,6 @@
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
       
-      <!-- Bendición de los Padres -->
       <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10">
         <p class="text-xs uppercase tracking-widest text-customBlueLight font-semibold mb-3">Con la bendición de nuestros padres</p>
         
@@ -162,12 +158,10 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4"></div>
 
-      <!-- Nueva frase personalizada -->
       <p class="font-serif italic text-gray-600 text-sm leading-relaxed px-2">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
-      <!-- Foto Familiar -->
       <div class="mt-8 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30">
         <img src="29521.jpg" alt="Familia Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
       </div>
@@ -176,14 +170,12 @@
     <!-- SECTION 2: CUENTA REGRESIVA Y CALENDARIO -->
     <section class="bg-customBlue text-silver py-10 px-6 text-center">
       
-      <!-- Fecha grande -->
       <div class="mb-6">
         <span class="text-xs uppercase tracking-widest text-silver/70">Viernes</span>
         <div class="text-5xl font-serif text-silver-light font-bold my-1">04</div>
         <span class="text-xs uppercase tracking-widest text-silver/70">Diciembre 2026</span>
       </div>
 
-      <!-- Reloj digital -->
       <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4">Faltan</h3>
       <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-10">
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
@@ -263,9 +255,9 @@
       <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Ceremonia Religiosa</h3>
-        <p class="text-xs text-gray-500 my-1">Hora: 5:00 PM</p>
+        <p class="text-xs font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
         <p class="text-sm text-gray-700 font-medium mb-4">Parroquia / Iglesia Principal</p>
-        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
+        <a href="https://maps.app.goo.gl/VXLC6u88iF1aZmi37?g_st=ac" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
       </div>
@@ -274,9 +266,9 @@
       <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Recepción</h3>
-        <p class="text-xs text-gray-500 my-1">Hora: 7:30 PM (Hasta las 10:00 PM)</p>
-        <p class="text-sm text-gray-700 font-medium mb-4">Salón de Recepciones</p>
-        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
+        <p class="text-xs font-semibold text-customBlue my-1">Hora: 4:30 PM (Hasta las 10:00 PM)</p>
+        <p class="text-sm text-gray-700 font-medium mb-4">Dolce Vita Rooftop, Edificio Trigoña II</p>
+        <a href="https://maps.app.goo.gl/gwgAHwKf7pgvFMaM6" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
       </div>
@@ -289,8 +281,15 @@
       <div>
         <i class="fa-solid fa-user-tie text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Código de Vestimenta</h3>
-        <p class="text-xs uppercase tracking-widest text-gray-500 mt-1">Formal / Etiqueta</p>
-        <p class="text-xs text-gray-500 italic mt-2">Agradecemos vestir trajes oscuros y vestidos largos.</p>
+        <p class="text-xs uppercase tracking-widest text-gray-500 mt-1 font-semibold">Formal / Etiqueta</p>
+        <p class="text-xs text-gray-600 mt-2 max-w-xs mx-auto italic">
+          Agradecemos vestir trajes oscuros y vestidos largos. 
+        </p>
+        <div class="mt-2 p-2 bg-rose-50 rounded-lg border border-rose-100 inline-block">
+          <p class="text-[11px] text-rose-800 font-medium">
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Por favor, evitar el uso de color blanco o derivados (perla, beige o champagne).
+          </p>
+        </div>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
@@ -308,7 +307,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
 
-      <!-- Mesa de Regalos con números -->
+      <!-- Mesa de Regalos -->
       <div>
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
@@ -317,14 +316,12 @@
         </p>
 
         <div class="grid grid-cols-2 gap-3 mt-4 text-center">
-          <!-- Plin Giuliana -->
           <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
             <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
             <p class="text-[11px] font-mono text-gray-700 mt-2 font-bold">986 247 483</p>
           </div>
 
-          <!-- Yape Luis -->
           <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
             <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Luis</p>
@@ -339,7 +336,7 @@
       <div>
         <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue">Confirmar Asistencia</h3>
-        <p class="text-xs text-gray-600 my-2"> Por favor confírmanos tu asistencia vía WhatsApp:</p>
+        <p class="text-xs text-gray-600 my-2">Por favor confírmanos tu asistencia vía WhatsApp:</p>
 
         <div class="flex flex-col sm:flex-row gap-3 mt-4 justify-center">
           <a href="https://wa.me/51986247483?text=¡Hola%20Giuliana!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-xs font-medium rounded-full shadow hover:bg-emerald-700 transition">
@@ -353,16 +350,14 @@
 
     </section>
 
-    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Ubicado al final) -->
+    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
     <section class="bg-cream p-6 text-center border-t border-silver/20">
       <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
       
-      <!-- Timeline decorativo -->
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
         <div class="w-1/3 h-full bg-customBlue"></div>
       </div>
 
-      <!-- Controles de música (sin texto 0:21) -->
       <div class="flex items-center justify-center gap-5 text-customBlue">
         <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-shuffle"></i></button>
         <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-backward-step"></i></button>
@@ -396,7 +391,6 @@
         envelope.style.display = 'none';
       }, 1000);
       
-      // Auto play música al abrir iniciando en 0:21
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
@@ -417,8 +411,7 @@
       }
     }
 
-    // Cuenta Regresiva para el 4 de Diciembre de 2026
-    const targetDate = new Date('December 4, 2026 17:00:00').getTime();
+    const targetDate = new Date('December 4, 2026 15:00:00').getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
