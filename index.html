@@ -126,7 +126,7 @@
       </div>
     </div>
 
-    <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
+    <!-- ==================== ENCABEZADO DE LA INVITACIÓN ==================== -->
     <header class="bg-customBlue text-silver text-center py-10 px-6 relative">
       <div class="font-script text-4xl text-silver-light mb-1">Giuliana & Luis</div>
       <div class="text-xs uppercase tracking-widest text-silver/70 font-light flex items-center justify-center gap-2">
@@ -135,6 +135,33 @@
         <span class="w-12 h-[1px] bg-silver/40"></span>
       </div>
     </header>
+
+    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Estilo tarjeta) -->
+    <section class="bg-cream p-6 text-center border-b border-silver/20">
+      <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
+      
+      <!-- Timeline decorativo -->
+      <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
+        <div class="w-1/3 h-full bg-customBlue"></div>
+      </div>
+
+      <!-- Controles de música -->
+      <div class="flex items-center justify-center gap-5 text-customBlue">
+        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-backward-step"></i></button>
+        
+        <button onclick="toggleAudio()" id="playBtn" class="w-12 h-12 rounded-full bg-customBlue text-silver flex items-center justify-center shadow-lg hover:scale-105 transition">
+          <i class="fa-solid fa-play text-base" id="playIcon"></i>
+        </button>
+        
+        <button class="text-sm text-gray-600 hover:text-customBlue transition"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <audio id="bgMusic" loop preload="metadata">
+        <source src="cancion.mp3" type="audio/mpeg">
+      </audio>
+    </section>
 
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
@@ -163,54 +190,102 @@
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4"></div>
 
       <p class="font-serif italic text-gray-600 text-sm leading-relaxed">
-        "Después de recorrer caminos juntos y con la bendición de Dios y nuestras familias, nos llena de alegría invitarlos a compartir el día en que uniremos nuestras vidas."
+        "Con la bendición y el amor de Dios. Él escribió nuestra historia, y queremos que seas parte de este hermoso día."
       </p>
-      <i class="fa-solid fa-quote-right text-2xl text-silver/40 mt-2 block"></i>
 
-      <!-- Reproductor Minimalista de Música -->
-      <div class="mt-8 p-4 bg-white rounded-2xl border border-silver/30 shadow-sm flex flex-col items-center">
-        <p class="font-serif text-xs text-gray-500 italic mb-2">Dale play a nuestra canción</p>
-        <div class="flex items-center gap-4">
-          <button onclick="toggleAudio()" id="playBtn" class="w-10 h-10 rounded-full bg-customBlue text-silver flex items-center justify-center shadow-md hover:bg-customBlueLight transition">
-            <i class="fa-solid fa-pause text-sm" id="playIcon"></i>
-          </button>
-          <span class="text-xs text-gray-600 font-mono" id="musicTime">0:21</span>
-        </div>
-        <audio id="bgMusic" loop preload="metadata">
-          <source src="cancion.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-
-      <!-- Family Photo Container -->
+      <!-- Foto Familiar -->
       <div class="mt-8 relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30">
         <img src="29521.jpg" alt="Familia Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
       </div>
     </section>
 
-    <!-- SECTION 2: CUENTA REGRESIVA -->
+    <!-- SECTION 2: CUENTA REGRESIVA Y CALENDARIO -->
     <section class="bg-customBlue text-silver py-10 px-6 text-center">
-      <h2 class="font-serif text-xl mb-4 tracking-wide text-silver-light">Faltan pocos días</h2>
-      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
+      
+      <!-- Fecha grande -->
+      <div class="mb-6">
+        <span class="text-xs uppercase tracking-widest text-silver/70">Viernes</span>
+        <div class="text-5xl font-serif text-silver-light font-bold my-1">04</div>
+        <span class="text-xs uppercase tracking-widest text-silver/70">Diciembre 2026</span>
+      </div>
+
+      <!-- Reloj digital -->
+      <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4">Faltan</h3>
+      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-10">
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
           <span id="days" class="block font-bold text-xl text-silver-shine">00</span>
-          <span class="text-[10px] uppercase text-silver/60">Días</span>
+          <span class="text-[9px] uppercase text-silver/60">Días</span>
         </div>
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
           <span id="hours" class="block font-bold text-xl text-silver-shine">00</span>
-          <span class="text-[10px] uppercase text-silver/60">Horas</span>
+          <span class="text-[9px] uppercase text-silver/60">Horas</span>
         </div>
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
           <span id="minutes" class="block font-bold text-xl text-silver-shine">00</span>
-          <span class="text-[10px] uppercase text-silver/60">Min</span>
+          <span class="text-[9px] uppercase text-silver/60">Min</span>
         </div>
         <div class="bg-customBlueDark/60 p-3 rounded-lg border border-silver/20">
           <span id="seconds" class="block font-bold text-xl text-silver-shine">00</span>
-          <span class="text-[10px] uppercase text-silver/60">Seg</span>
+          <span class="text-[9px] uppercase text-silver/60">Seg</span>
+        </div>
+      </div>
+
+      <!-- Calendario de Diciembre 2026 -->
+      <div class="max-w-xs mx-auto bg-customBlueDark/80 p-5 rounded-2xl border border-silver/20">
+        <h4 class="font-serif text-lg tracking-widest uppercase mb-4 text-silver-light">El Gran Día</h4>
+        <p class="text-xs uppercase tracking-widest text-silver/60 mb-3">Diciembre 2026</p>
+        
+        <div class="grid grid-cols-7 gap-1 text-center text-xs font-mono">
+          <!-- Días semana -->
+          <span class="text-silver/40 font-bold">LUN</span>
+          <span class="text-silver/40 font-bold">MAR</span>
+          <span class="text-silver/40 font-bold">MIÉ</span>
+          <span class="text-silver/40 font-bold">JUE</span>
+          <span class="text-silver/40 font-bold">VIE</span>
+          <span class="text-silver/40 font-bold">SÁB</span>
+          <span class="text-silver/40 font-bold">DOM</span>
+
+          <!-- Espacios del mes (Diciembre 2026 empieza en Martes) -->
+          <span></span>
+          <span class="py-1">1</span>
+          <span class="py-1">2</span>
+          <span class="py-1">3</span>
+          <!-- Viernes 04 Destacado con Corazón -->
+          <span class="py-1 relative font-bold text-customBlue">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-silver text-customBlue font-bold shadow-md">4</span>
+          </span>
+          <span class="py-1">5</span>
+          <span class="py-1">6</span>
+          <span class="py-1">7</span>
+          <span class="py-1">8</span>
+          <span class="py-1">9</span>
+          <span class="py-1">10</span>
+          <span class="py-1">11</span>
+          <span class="py-1">12</span>
+          <span class="py-1">13</span>
+          <span class="py-1">14</span>
+          <span class="py-1">15</span>
+          <span class="py-1">16</span>
+          <span class="py-1">17</span>
+          <span class="py-1">18</span>
+          <span class="py-1">19</span>
+          <span class="py-1">20</span>
+          <span class="py-1">21</span>
+          <span class="py-1">22</span>
+          <span class="py-1">23</span>
+          <span class="py-1">24</span>
+          <span class="py-1">25</span>
+          <span class="py-1">26</span>
+          <span class="py-1">27</span>
+          <span class="py-1">28</span>
+          <span class="py-1">29</span>
+          <span class="py-1">30</span>
+          <span class="py-1">31</span>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: UBICACIONES / GOOGLE MAPS -->
+    <!-- SECTION 3: UBICACIONES / CEREMONIA Y RECEPCIÓN -->
     <section class="px-6 py-10 text-center space-y-6">
       
       <!-- Ceremonia Religiosa -->
@@ -236,6 +311,71 @@
       </div>
     </section>
 
+    <!-- SECTION 4: DETALLES IMPORTANTES (DRESS CODE, NOTAS Y MESA DE REGALOS) -->
+    <section class="bg-white px-6 py-10 text-center border-t border-silver/20 space-y-8">
+      
+      <!-- Dress Code -->
+      <div>
+        <i class="fa-solid fa-user-tie text-2xl text-customBlue mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue">Código de Vestimenta</h3>
+        <p class="text-xs uppercase tracking-widest text-gray-500 mt-1">Formal / Etiqueta</p>
+        <p class="text-xs text-gray-500 italic mt-2">Agradecemos vestir trajes oscuros y vestidos largos.</p>
+      </div>
+
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+
+      <!-- Recepción hasta las 10pm & No Niños -->
+      <div class="space-y-4">
+        <div class="p-4 bg-cream rounded-xl border border-silver/30">
+          <i class="fa-solid fa-moon text-customBlue text-lg mb-1"></i>
+          <p class="text-xs font-semibold text-customBlue">Horario de Celebración</p>
+          <p class="text-xs text-gray-600 mt-1">
+            Estaremos festejando junto a ustedes hasta las <strong>10:00 PM</strong>, momento en que Gabriel y Julián irán a descansar. ¡Agradecemos su comprensión!
+          </p>
+        </div>
+
+        <div class="p-4 bg-cream rounded-xl border border-silver/30">
+          <i class="fa-solid fa-heart text-customBlue text-lg mb-1"></i>
+          <p class="text-xs font-semibold text-customBlue">Evento de Adultos</p>
+          <p class="text-xs text-gray-600 mt-1">
+            Queremos que disfruten una noche de relajación y fiesta. Agradecemos su comprensión al ser una recepción reservada solo para adultos.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-12 h-[1px] bg-silver/50 mx-auto"></div>
+
+      <!-- Mesa de Regalos / Plin y Yape -->
+      <div>
+        <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
+        <p class="text-xs text-gray-600 my-2 leading-relaxed">
+          Su presencia es nuestro mejor regalo. Si desean realizarnos un obsequio en efectivo, pueden hacerlo con mucho cariño a nuestras cuentas:
+        </p>
+
+        <div class="grid grid-cols-2 gap-3 mt-4 text-left">
+          <!-- Plin Giuliana -->
+          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
+              <p class="text-xs font-bold text-customBlue mt-1">Giuliana</p>
+            </div>
+            <p class="text-[11px] font-mono text-gray-600 mt-2">Buscador Plin</p>
+          </div>
+
+          <!-- Yape Luis -->
+          <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
+              <p class="text-xs font-bold text-customBlue mt-1">Luis</p>
+            </div>
+            <p class="text-[11px] font-mono text-gray-600 mt-2">Buscador Yape</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
     <!-- FOOTER -->
     <footer class="bg-customBlueDark text-silver/50 text-center py-6 text-xs border-t border-silver/10">
       <p>Giuliana & Luis • Matrimonio Religioso 2026</p>
@@ -252,11 +392,11 @@
         envelope.style.display = 'none';
       }, 1000);
       
-      // Auto play música al abrir en 0:21
+      // Auto play música al abrir iniciando en 0:21
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
-        document.getElementById('playIcon').className = 'fa-solid fa-pause text-sm';
+        document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
       }).catch(e => console.log("Audio play prevented:", e));
     }
 
@@ -266,10 +406,10 @@
       if (audio.paused) {
         if (audio.currentTime === 0) audio.currentTime = 21;
         audio.play();
-        icon.className = 'fa-solid fa-pause text-sm';
+        icon.className = 'fa-solid fa-pause text-base';
       } else {
         audio.pause();
-        icon.className = 'fa-solid fa-play text-sm';
+        icon.className = 'fa-solid fa-play text-base';
       }
     }
 
