@@ -90,17 +90,9 @@
   <!-- Main Container Mockup -->
   <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL RESTAURADA) ==================== -->
+    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL RESTAURADA Y SIN CÍRCULO) ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
       
-      <!-- Background Decorative Lines -->
-      <div class="absolute top-0 left-0 w-48 opacity-10 pointer-events-none">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="30" fill="#E5E5E5"/>
-          <path d="M10 80C60 60 110 90 140 150" stroke="#E5E5E5" stroke-width="1"/>
-        </svg>
-      </div>
-
       <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
         <!-- Badge -->
         <span class="inline-block px-3 py-1 bg-silver/10 border border-silver/30 text-silver text-[10px] tracking-widest uppercase rounded-full mb-4">
@@ -147,21 +139,25 @@
         <span class="text-2xl text-silver/80 my-0.5">&</span>
         <span>Luis</span>
       </div>
-      <div class="text-xs uppercase tracking-widest text-silver/70 font-light flex items-center justify-center gap-2 mt-4">
-        <span class="w-12 h-[1px] bg-silver/40"></span>
-        <span>Viernes, 04 de Diciembre de 2026</span>
-        <span class="w-12 h-[1px] bg-silver/40"></span>
+      <!-- Nueva frase antes del "Con la bendición de nuestros padres" -->
+      <div class="font-serif italic text-lg text-silver/90 mt-4 px-4 leading-relaxed tracking-wide">
+        "Te elijo hoy y por el resto de mi vida"
       </div>
     </header>
 
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
       
-      <!-- Bendición de los Padres -->
+      <!-- FOTO DE LOS NOVIOS ANTES DE LA BENDICIÓN DE LOS PADRES (Pedido Giuliana & Luis) -->
+      <div class="relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 max-w-sm mx-auto mb-10 reveal">
+        <img src="foto_novios.jpg" alt="Giuliana y Luis abrazados" class="w-full h-auto object-contain rounded-xl">
+      </div>
+
+      <!-- Bendición de los Padres (Tipografía uniforme corregida) -->
       <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
-        <p class="text-xs uppercase tracking-widest text-customBlueLight font-semibold mb-3">Con la bendición de nuestros padres</p>
+        <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
-        <div class="space-y-4 my-4 font-serif text-sm text-gray-700">
+        <div class="space-y-4 my-4 font-serif text-[15px] sm:text-base text-gray-700 leading-relaxed">
           <div>
             <p class="text-xs text-gray-400 italic mb-0.5">Padres de la Novia:</p>
             <p class="font-semibold text-customBlue">Doña María Yolanda Granada Rozas</p>
@@ -181,7 +177,7 @@
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
       <!-- Frase Personalizada -->
-      <p class="font-serif italic text-gray-600 text-sm leading-relaxed px-2 reveal">
+      <p class="font-serif italic text-gray-600 text-base leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
@@ -280,20 +276,20 @@
       <!-- Ceremonia Religiosa -->
       <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Ceremonia Religiosa</h3>
-        <p class="text-xs font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
-        <p class="text-sm text-gray-700 font-medium mb-4">Parroquia Santa Teresita del Niño Jesús</p>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Ceremonia Religiosa</h3>
+        <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
+        <p class="text-[15px] text-gray-700 font-medium mb-4">Parroquia Santa Teresita del Niño Jesús</p>
         <a href="https://maps.app.goo.gl/VXLC6u88iF1aZmi37?g_st=ac" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
       </div>
 
-      <!-- Recepción (Actualizado sin 'Hasta las 10:00 PM') -->
+      <!-- Recepción -->
       <div class="bg-white p-6 rounded-2xl border border-silver/30 shadow-sm reveal">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Recepción</h3>
-        <p class="text-xs font-semibold text-customBlue my-1">Hora: 4:30 PM</p>
-        <p class="text-sm text-gray-700 font-medium mb-4">Dolce Vita Rooftop, Edificio Trigoña II</p>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Recepción</h3>
+        <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 4:30 PM</p>
+        <p class="text-[15px] text-gray-700 font-medium mb-4">Dolce Vita Rooftop, Edificio Trigoña II</p>
         <a href="https://maps.app.goo.gl/gwgAHwKf7pgvFMaM6" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
@@ -322,33 +318,31 @@
           Código de Vestimenta
         </h3>
         
-        <p class="font-serif text-sm tracking-widest text-silver/80 uppercase font-semibold mb-4">
+        <p class="font-serif text-[15px] tracking-widest text-silver/80 uppercase font-semibold mb-4">
           Formal
         </p>
 
-        <p class="font-serif text-sm text-silver-shine italic mb-4">
+        <p class="font-serif text-[15px] text-silver-shine italic mb-4">
           Evitar colores: <span class="font-semibold text-white">blanco, ivory, crema, beige, nude</span>
         </p>
 
         <!-- Paleta de Colores a Evitar -->
         <div class="flex items-center justify-center gap-2.5">
-          <div class="w-6 h-6 rounded-full bg-white border-2 border-silver shadow-md" title="Blanco"></div>
-          <div class="w-6 h-6 rounded-full bg-[#fffff0] border-2 border-silver/80 shadow-md" title="Ivory"></div>
-          <div class="w-6 h-6 rounded-full bg-[#fdfbf7] border-2 border-silver/80 shadow-md" title="Crema"></div>
-          <div class="w-6 h-6 rounded-full bg-[#f5f0eb] border-2 border-silver/80 shadow-md" title="Beige"></div>
-          <div class="w-6 h-6 rounded-full bg-[#e8d5c4] border-2 border-silver/80 shadow-md" title="Nude"></div>
+          <div class="w-7 h-7 rounded-full bg-white border-2 border-silver shadow-md" title="Blanco"></div>
+          <div class="w-7 h-7 rounded-full bg-[#fffff0] border-2 border-silver/80 shadow-md" title="Ivory"></div>
+          <div class="w-7 h-7 rounded-full bg-[#fdfbf7] border-2 border-silver/80 shadow-md" title="Crema"></div>
+          <div class="w-7 h-7 rounded-full bg-[#f5f0eb] border-2 border-silver/80 shadow-md" title="Beige"></div>
+          <div class="w-7 h-7 rounded-full bg-[#e8d5c4] border-2 border-silver/80 shadow-md" title="Nude"></div>
         </div>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Nota sobre los niños -->
-      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-left reveal">
-        <div class="flex items-center gap-2 mb-2 justify-center">
-          <i class="fa-solid fa-heart text-customBlue text-base"></i>
-          <p class="text-xs font-bold text-customBlue uppercase tracking-wider">Un detalle especial</p>
-        </div>
-        <p class="text-xs text-gray-600 leading-relaxed text-center italic">
+      <!-- Nota sobre los niños (Con tipografía corregida y corazón arriba) -->
+      <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center">
+        <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
+        <p class="text-[14px] sm:text-[15px] text-gray-700 leading-relaxed italic max-w-sm">
           ¡Amamos a los pequeños de la casa! Sin embargo, para esta ocasión y dado que la recepción será en una terraza de azotea, hemos preparado un evento orientado a adultos (a excepción de nuestros dos bebés). Queremos que los papás y mamás invitados puedan relajarse y disfrutar al máximo de la tarde con nosotros.
         </p>
       </div>
@@ -358,8 +352,8 @@
       <!-- Mesa de Regalos -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Mesa de Regalos</h3>
-        <p class="text-xs text-gray-600 my-2 leading-relaxed">
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Mesa de Regalos</h3>
+        <p class="text-[14px] sm:text-[15px] text-gray-600 my-2 leading-relaxed">
           Su presencia es nuestro mejor regalo. Si desean realizarnos un detalle en efectivo, pueden hacerlo con mucho cariño a nuestras cuentas:
         </p>
 
@@ -367,53 +361,52 @@
           <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
             <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
-            <p class="text-[11px] font-mono text-gray-700 mt-2 font-bold">986 247 483</p>
+            <p class="text-base font-mono text-gray-800 mt-2 font-bold">986 247 483</p>
           </div>
 
           <div class="p-3 bg-cream rounded-xl border border-silver/40 flex flex-col items-center">
             <span class="text-[10px] uppercase font-bold text-purple-700 tracking-wider">YAPE</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Luis</p>
-            <p class="text-[11px] font-mono text-gray-700 mt-2 font-bold">961 870 511</p>
+            <p class="text-base font-mono text-gray-800 mt-2 font-bold">961 870 511</p>
           </div>
         </div>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- TARJETA HORARIO GABRIEL Y JULIÁN (Fondo Azul con Luna) -->
+      <!-- TARJETA HORARIO GABRIEL Y JULIÁN -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <!-- Icono de Luna Minimalista -->
         <div class="flex items-center justify-center text-silver-shine text-xl mb-3 opacity-90">
           <i class="fa-solid fa-moon"></i>
         </div>
-        <p class="font-serif text-sm text-silver-shine leading-relaxed italic">
+        <p class="font-serif text-[15px] text-silver-shine leading-relaxed italic">
           "Como nuestros dos pequeños nos estarán acompañando durante el día, a las 10:00 p. m. daremos por concluida la recepción para respetar la hora de descanso y sueño de Gabriel y Julián. ¡Gracias por acompañarnos en esta tarde tan especial!"
         </p>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Confirmación por WhatsApp -->
+      <!-- Confirmación por WhatsApp (Estilo acortado y sintonizado con el diseño) -->
       <div class="reveal">
-        <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue">Confirmar Asistencia</h3>
-        <p class="text-xs text-gray-600 my-2">Por favor confírmanos tu asistencia vía WhatsApp:</p>
+        <i class="fa-solid fa-envelope-open-text text-2xl text-customBlue mb-2"></i>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Confirmar Asistencia</h3>
+        <p class="text-[14px] sm:text-[15px] text-gray-600 my-2">Por favor confírmanos tu asistencia vía WhatsApp:</p>
 
-        <div class="flex flex-col sm:flex-row gap-3 mt-4 justify-center">
-          <a href="https://wa.me/51986247483?text=¡Hola%20Giuliana!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-xs font-medium rounded-full shadow hover:bg-emerald-700 transition">
-            <i class="fa-brands fa-whatsapp text-sm"></i> Confirmar con Giuliana
+        <div class="flex flex-col gap-2 mt-4 max-w-xs mx-auto">
+          <a href="https://wa.me/51986247483?text=¡Hola%20Giuliana!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-customBlue text-silver hover:bg-customBlueLight text-xs font-semibold rounded-full shadow transition-all border border-silver/20">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Giuliana
           </a>
-          <a href="https://wa.me/51961870511?text=¡Hola%20Luis!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-xs font-medium rounded-full shadow hover:bg-emerald-700 transition">
-            <i class="fa-brands fa-whatsapp text-sm"></i> Confirmar con Luis
+          <a href="https://wa.me/51961870511?text=¡Hola%20Luis!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-customBlue text-silver hover:bg-customBlueLight text-xs font-semibold rounded-full shadow transition-all border border-silver/20">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Luis
           </a>
         </div>
       </div>
 
     </section>
 
-    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
+    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Estéticamente reconfigurado sin "Dale Play a nuestra canción" y con bloqueo en los 21s) -->
     <section class="bg-cream p-6 text-center border-t border-silver/20 reveal">
-      <p class="font-serif text-sm text-customBlue italic mb-3">Dale play a nuestra canción</p>
       
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
         <div class="w-1/3 h-full bg-customBlue"></div>
@@ -431,7 +424,8 @@
         <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-repeat"></i></button>
       </div>
 
-      <audio id="bgMusic" loop preload="metadata">
+      <!-- Atributos para obligar a que al terminar o repetirse salte de nuevo al segundo 21 -->
+      <audio id="bgMusic" loop preload="metadata" ontimeupdate="preventEarlyPlayback(this)" onseeked="preventEarlyPlayback(this)">
         <source src="cancion.mp3" type="audio/mpeg">
       </audio>
     </section>
@@ -464,12 +458,19 @@
       const audio = document.getElementById('bgMusic');
       const icon = document.getElementById('playIcon');
       if (audio.paused) {
-        if (audio.currentTime === 0) audio.currentTime = 21;
+        if (audio.currentTime < 21) audio.currentTime = 21;
         audio.play();
         icon.className = 'fa-solid fa-pause text-base';
       } else {
         audio.pause();
         icon.className = 'fa-solid fa-play text-base';
+      }
+    }
+
+    // Fuerza a que la música siempre empiece en el segundo 21 (0:21) al retroceder o repetirse en bucle
+    function preventEarlyPlayback(audio) {
+      if (audio.currentTime < 21) {
+        audio.currentTime = 21;
       }
     }
 
