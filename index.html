@@ -90,7 +90,7 @@
   <!-- Main Container Mockup -->
   <div class="w-full max-w-md bg-cream min-h-screen shadow-2xl relative overflow-x-hidden mx-auto">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL RESTAURADA Y SIN CÍRCULO) ==================== -->
+    <!-- ==================== ENVELOPE / SCREEN OVERLAY (PORTADA ORIGINAL) ==================== -->
     <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
       
       <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
@@ -99,7 +99,7 @@
           <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
         </span>
 
-        <!-- Nombres de los Novios (Centrados en Portada) -->
+        <!-- Nombres de los Novios -->
         <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
           <span>Giuliana</span>
           <span class="text-3xl text-silver block my-1">&</span>
@@ -132,28 +132,41 @@
     </div>
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
-    <!-- Nombres verticales en el encabezado interior -->
-    <header class="bg-customBlue text-silver text-center py-10 px-6 relative reveal">
-      <div class="font-script text-4xl sm:text-5xl text-silver-light flex flex-col items-center gap-1">
-        <span>Giuliana</span>
-        <span class="text-2xl text-silver/80 my-0.5">&</span>
-        <span>Luis</span>
-      </div>
-      <!-- Nueva frase antes del "Con la bendición de nuestros padres" -->
-      <div class="font-serif italic text-lg text-silver/90 mt-4 px-4 leading-relaxed tracking-wide">
-        "Te elijo hoy y por el resto de mi vida"
+    
+    <!-- SECCIÓN HÉROE INICIAL (MODELO: FOTO DE FONDO OSCURECIDA CON TEXTO SUPERPUESTO) -->
+    <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 reveal overflow-hidden">
+      <!-- Foto de pareja como fondo completo -->
+      <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover z-0">
+      
+      <!-- Capa de oscurecimiento (Overlay) para resaltar el texto superpuesto -->
+      <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/70 via-customBlue/60 to-customBlueDark/90 z-10"></div>
+
+      <!-- Contenido Superpuesto (Nombres + Frase) -->
+      <div class="relative z-20 flex flex-col items-center justify-center space-y-4">
+        <div class="font-script text-6xl sm:text-7xl text-silver-light drop-shadow-lg flex flex-col items-center gap-1">
+          <span>Giuliana</span>
+          <span class="text-3xl text-silver my-1">&</span>
+          <span>Luis</span>
+        </div>
+
+        <div class="w-24 h-[1px] bg-silver/50 my-2"></div>
+
+        <!-- Frase de portada -->
+        <p class="font-serif italic text-lg sm:text-xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md">
+          "Te elijo hoy y por el resto de mi vida"
+        </p>
+
+        <!-- Indicador de desplazamiento (Flechita hacia abajo) -->
+        <div class="pt-8 animate-bounce">
+          <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
+        </div>
       </div>
     </header>
 
     <!-- SECTION 1: PADRES Y BENDICIÓN -->
     <section class="px-6 py-10 text-center relative">
       
-      <!-- FOTO DE LOS NOVIOS ANTES DE LA BENDICIÓN DE LOS PADRES (Pedido Giuliana & Luis) -->
-      <div class="relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 max-w-sm mx-auto mb-10 reveal">
-        <img src="foto_novios.jpg" alt="Giuliana y Luis abrazados" class="w-full h-auto object-contain rounded-xl">
-      </div>
-
-      <!-- Bendición de los Padres (Tipografía uniforme corregida) -->
+      <!-- Bendición de los Padres -->
       <div class="mb-8 bg-white p-6 rounded-2xl border border-silver/30 shadow-sm relative z-10 reveal">
         <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
         
@@ -308,7 +321,6 @@
       
       <!-- TARJETA CÓDIGO DE VESTIMENTA -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
-        <!-- Íconos de Vestimenta Elegante -->
         <div class="flex items-center justify-center gap-2 text-silver-shine text-2xl mb-2 opacity-90">
           <i class="fa-solid fa-person-dress"></i>
           <i class="fa-solid fa-user-tie"></i>
@@ -338,7 +350,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Nota sobre los niños (Con tipografía corregida y corazón arriba) -->
+      <!-- Nota sobre los niños -->
       <div class="p-5 bg-cream rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
@@ -376,7 +388,6 @@
 
       <!-- TARJETA HORARIO GABRIEL Y JULIÁN -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
-        <!-- Icono de Luna Minimalista -->
         <div class="flex items-center justify-center text-silver-shine text-xl mb-3 opacity-90">
           <i class="fa-solid fa-moon"></i>
         </div>
@@ -387,7 +398,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- Confirmación por WhatsApp (Estilo acortado y sintonizado con el diseño) -->
+      <!-- Confirmación por WhatsApp -->
       <div class="reveal">
         <i class="fa-solid fa-envelope-open-text text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Confirmar Asistencia</h3>
@@ -405,7 +416,7 @@
 
     </section>
 
-    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA (Estéticamente reconfigurado sin "Dale Play a nuestra canción" y con bloqueo en los 21s) -->
+    <!-- REPRODUCTOR DE MÚSICA MINIMALISTA -->
     <section class="bg-cream p-6 text-center border-t border-silver/20 reveal">
       
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
@@ -424,7 +435,6 @@
         <button class="text-xs text-gray-400 hover:text-customBlue transition"><i class="fa-solid fa-repeat"></i></button>
       </div>
 
-      <!-- Atributos para obligar a que al terminar o repetirse salte de nuevo al segundo 21 -->
       <audio id="bgMusic" loop preload="metadata" ontimeupdate="preventEarlyPlayback(this)" onseeked="preventEarlyPlayback(this)">
         <source src="cancion.mp3" type="audio/mpeg">
       </audio>
@@ -467,7 +477,6 @@
       }
     }
 
-    // Fuerza a que la música siempre empiece en el segundo 21 (0:21) al retroceder o repetirse en bucle
     function preventEarlyPlayback(audio) {
       if (audio.currentTime < 21) {
         audio.currentTime = 21;
