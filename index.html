@@ -47,7 +47,7 @@
       scroll-behavior: smooth;
     }
     
-    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D TRIPLICADA Y SIN DEFORMACIÓN */
+    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D PAUSADA Y SIN DEFORMACIÓN */
     .gatefold-container {
       perspective: 1500px;
       transform-style: preserve-3d;
@@ -600,3 +600,44 @@
       doorRight.classList.add('open-right');
 
       // Reproducción de música
+      const audio = document.getElementById('bgMusic');
+      audio.currentTime = 21;
+      audio.play().then(() => {
+        document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
+      }).catch(e => console.log("Audio play prevented:", e));
+
+      // Transición progresiva del sobre
+      setTimeout(() => {
+        envelopeScreen.style.opacity = '0';
+        setTimeout(() => {
+          envelopeScreen.style.display = 'none';
+          document.getElementById('mainContainer').classList.add('hero-active');
+          checkReveal();
+        }, 1000);
+      }, 3500);
+    }
+
+    function toggleAudio() {
+      const audio = document.getElementById('bgMusic');
+      const icon = document.getElementById('playIcon');
+      if (audio.paused) {
+        if (audio.currentTime < 21) audio.currentTime = 21;
+        audio.play();
+        icon.className = 'fa-solid fa-pause text-base';
+      } else {
+        audio.pause();
+        icon.className = 'fa-solid fa-play text-base';
+      }
+    }
+
+    function preventEarlyPlayback(audio) {
+      if (audio.currentTime < 21) {
+        audio.currentTime = 21;
+      }
+    }
+
+    function checkReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      
+      reve
