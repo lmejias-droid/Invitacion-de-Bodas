@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -103,15 +103,7 @@
       transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 2.0s;
     }
 
-    /* ESTADO ACTIVO AL ABRIR EL SOBRE */
-    .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
-    .hero-active .anim-ampersand { opacity: 1; }
-    .hero-active .anim-luis { opacity: 1; transform: translateX(0); }
-    .hero-active .anim-line { opacity: 1; transform: scaleX(1); }
-    .hero-active .anim-phrase { opacity: 1; transform: translateY(0); }
-    .hero-active .anim-arrow { opacity: 1; }
-
-    /* TEXTURA RUGOSA INTENSIFICADA DE PAPEL PRENSADO LUXURY */
+    /* TEXTURA RUGOSA DE PAPEL PRENSADO LUXURY */
     .luxury-pressed-paper {
       background-color: #f3f2ee;
       background-image: 
@@ -137,7 +129,7 @@
 
 <body class="bg-customBlue font-sans text-gray-800 antialiased selection:bg-silver selection:text-customBlue">
 
-  <!-- Main Container Mockup con TEXTURA REFORZADA DE PAPEL PRENSADO -->
+  <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO -->
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
     <!-- ==================== ENVELOPE / SCREEN OVERLAY ==================== -->
@@ -162,49 +154,46 @@
           ¡Nos casamos! Acompáñanos a celebrar este gran día.
         </p>
 
-        <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none">
+        <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none mb-2">
           <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
             <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue">
               <i class="fa-solid fa-envelope-open text-xl mb-0.5 group-hover:scale-110 transition-transform"></i>
               <span class="text-[9px] font-bold tracking-widest uppercase">Abrir</span>
             </div>
           </div>
-          <span class="text-[11px] text-silver/70 mt-3 font-light tracking-wide">Haz clic en el sello para abrir la invitación</span>
         </button>
 
-        <p class="text-[10px] text-silver/40 tracking-widest uppercase mt-4">04 . 12 . 2026</p>
+        <!-- AVISO DE MÚSICA DE FONDO -->
+        <p class="text-[11px] text-silver/70 mt-2 font-light tracking-wide flex items-center justify-center gap-1">
+          <i class="fa-solid fa-volume-high text-xs"></i> Sube el volumen para escuchar la música
+        </p>
       </div>
     </div>
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
     <!-- SECCIÓN HÉROE INICIAL ANIMADA -->
-    <header class="relative w-full h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden" id="heroHeader">
-      <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/70 via-customBlue/60 to-customBlueDark/90 z-10"></div>
+    <header class="relative w-full h-[95vh] flex flex-col items-center justify-end pb-10 text-center px-6 overflow-hidden" id="heroHeader">
+      <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/50 via-customBlue/50 to-customBlueDark/90 z-10"></div>
 
-      <div class="relative z-20 flex flex-col items-center justify-center space-y-4">
-        <div class="font-script text-6xl sm:text-7xl text-silver-light drop-shadow-lg flex flex-col items-center gap-1">
-          <!-- Giuliana: Izquierda -> Derecha -->
+      <div class="relative z-20 flex flex-col items-center justify-center space-y-3">
+        <div class="font-script text-5xl sm:text-6xl text-silver-light drop-shadow-lg flex flex-col items-center gap-0.5">
           <span class="anim-giuliana">Giuliana</span>
-          <!-- Ampersand: Fade-in central -->
-          <span class="text-3xl text-silver my-1 anim-ampersand">&</span>
-          <!-- Luis: Derecha -> Izquierda -->
+          <span class="text-2xl text-silver my-0.5 anim-ampersand">&</span>
           <span class="anim-luis">Luis</span>
         </div>
 
-        <!-- Línea delgada: Expansión de adentro hacia afuera -->
-        <div class="w-24 h-[1px] bg-silver/50 my-2 anim-line"></div>
+        <div class="w-20 h-[1px] bg-silver/50 my-1 anim-line"></div>
 
-        <!-- Frase: Abajo -> Arriba -->
-        <p class="font-serif italic text-xl sm:text-2xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium anim-phrase">
+        <!-- FRASE GUÍA TIPOGRÁFICA -->
+        <p class="font-serif italic text-lg sm:text-xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium anim-phrase">
           "Te elijo hoy y por el resto de mi vida"
         </p>
 
-        <!-- Indicador de desplazamiento -->
-        <div class="pt-8 anim-arrow">
+        <div class="pt-4 anim-arrow">
           <div class="animate-bounce">
-            <i class="fa-solid fa-chevron-down text-silver-light text-2xl opacity-80"></i>
+            <i class="fa-solid fa-chevron-down text-silver-light text-xl opacity-80"></i>
           </div>
         </div>
       </div>
@@ -235,18 +224,15 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <p class="font-serif italic text-gray-700 text-lg sm:text-xl leading-relaxed px-2 reveal">
+      <p class="font-serif italic text-lg sm:text-xl text-gray-700 leading-relaxed px-2 reveal">
         "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
       </p>
 
-      <!-- SVG PERSONALIZADO: ANILLOS DE MATRIMONIO ENTRELAZADOS MINIMALISTAS -->
+      <!-- SVG PERSONALIZADO: ANILLOS DE MATRIMONIO ENTRELAZADOS -->
       <div class="my-6 flex justify-center items-center reveal">
         <svg class="w-12 h-12 text-customBlue opacity-80" viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Alianza 1 (Izquierda) -->
           <ellipse cx="38" cy="30" rx="22" ry="16" transform="rotate(-15 38 30)" />
           <path d="M 18,30 A 22 16 0 0 1 58,30" stroke-width="1.5" opacity="0.6" transform="rotate(-15 38 30)" />
-          
-          <!-- Alianza 2 (Derecha Entrelazada) -->
           <ellipse cx="62" cy="30" rx="22" ry="16" transform="rotate(15 62 30)" />
           <path d="M 42,30 A 22 16 0 0 1 82,30" stroke-width="1.5" opacity="0.6" transform="rotate(15 62 30)" />
         </svg>
@@ -342,7 +328,9 @@
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Ceremonia Religiosa</h3>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
-        <p class="text-[15px] text-gray-700 font-medium mb-4">Parroquia Santa Teresita del Niño Jesús</p>
+        <p class="text-[15px] text-gray-700 font-medium mb-1">Parroquia Santa Teresita del Niño Jesús</p>
+        <p class="text-xs text-gray-500 font-semibold tracking-wide uppercase mb-4">Jesús María</p>
+        
         <a href="https://maps.app.goo.gl/VXLC6u88iF1aZmi37?g_st=ac" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
@@ -352,7 +340,9 @@
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Recepción</h3>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 4:30 PM</p>
-        <p class="text-[15px] text-gray-700 font-medium mb-4">Dolce Vita Rooftop, Edificio Trigoña II</p>
+        <p class="text-[15px] text-gray-700 font-medium mb-1">Dolce Vita Rooftop, Edificio Trigoña II</p>
+        <p class="text-xs text-gray-500 font-semibold tracking-wide uppercase mb-4">Jesús María</p>
+
         <a href="https://maps.app.goo.gl/gwgAHwKf7pgvFMaM6" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-customBlue text-silver text-xs rounded-full shadow hover:bg-customBlueLight transition">
           <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
         </a>
@@ -398,24 +388,31 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <div class="p-5 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
+      <!-- UN DETALLE ESPECIAL (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
+      <div class="p-6 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Un detalle especial</h3>
-        <p class="text-[14px] sm:text-[15px] text-gray-700 leading-relaxed italic max-w-sm">
-          ¡Amamos a los pequeños de la casa! Sin embargo, para esta ocasión y dado que la recepción será en una terraza de azotea, hemos preparado un evento orientado a adultos (a excepción de nuestros dos bebés). Queremos que los papás y mamás invitados puedan relajarse y disfrutar al máximo de la tarde con nosotros.
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Un detalle especial</h3>
+        <p class="font-serif italic text-lg sm:text-xl text-gray-700 leading-relaxed max-w-sm">
+          "¡Amamos a los pequeños de la casa! Sin embargo, para esta ocasión y dado que la recepción será en una terraza de azotea, hemos preparado un evento orientado a adultos (a excepción de nuestros dos bebés). Queremos que los papás y mamás invitados puedan relajarse y disfrutar al máximo de la tarde con nosotros."
         </p>
       </div>
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
+      <!-- MESA DE REGALOS (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Mesa de Regalos</h3>
-        <p class="text-[14px] sm:text-[15px] text-gray-600 my-2 leading-relaxed">
-          Su presencia es nuestro mejor regalo. Si desean realizarnos un detalle en efectivo, pueden hacerlo con mucho cariño a nuestras cuentas:
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Mesa de Regalos</h3>
+        
+        <p class="font-serif italic text-lg sm:text-xl text-gray-800 my-3 leading-relaxed">
+          "Lo más valioso para nosotros será contar con su compañía y compartir juntos este día tan especial."
+        </p>
+        
+        <p class="font-serif italic text-lg sm:text-xl text-gray-700 my-3 leading-relaxed">
+          "Si desean hacernos llegar un detalle, cualquier gesto será recibido con mucho amor y agradecimiento. Para quienes prefieran hacerlo de una manera más práctica, les compartimos nuestras cuentas a través de las cuales podrán enviarnos ese cariño:"
         </p>
 
-        <div class="grid grid-cols-2 gap-3 mt-4 text-center">
+        <div class="grid grid-cols-2 gap-3 mt-5 text-center">
           <div class="p-3 bg-white/90 backdrop-blur-sm rounded-xl border border-silver/40 flex flex-col items-center shadow-sm">
             <span class="text-[10px] uppercase font-bold text-teal-600 tracking-wider">PLIN</span>
             <p class="text-xs font-bold text-customBlue mt-0.5">Giuliana</p>
@@ -432,11 +429,12 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
+      <!-- RECUADRO GABRIEL Y JULIÁN (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <div class="flex items-center justify-center text-silver-shine text-xl mb-3 opacity-90">
           <i class="fa-solid fa-moon"></i>
         </div>
-        <p class="font-serif text-[15px] text-silver-shine leading-relaxed italic">
+        <p class="font-serif italic text-lg sm:text-xl text-silver-shine leading-relaxed">
           "Como nuestros dos pequeños nos estarán acompañando durante el día, a las 10:00 p. m. daremos por concluida la recepción para respetar la hora de descanso y sueño de Gabriel y Julián. ¡Gracias por acompañarnos en esta tarde tan especial!"
         </p>
       </div>
