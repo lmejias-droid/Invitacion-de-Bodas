@@ -495,7 +495,50 @@
 
     </section>
 
-    <!-- Reproductor -->
+    <!-- ==================== SECCIÓN FINAL INSPIRADA EN EL MODELO ==================== -->
+    <section class="px-6 pt-6 pb-10 text-center space-y-8 border-t border-silver/20">
+      
+      <!-- Foto Portada Familiar -->
+      <div class="reveal">
+        <div class="relative inline-block p-2 bg-white rounded-2xl shadow-xl border border-silver/30 max-w-sm mx-auto">
+          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-contain rounded-xl">
+        </div>
+      </div>
+
+      <!-- Monograma Aro Botánico G & L -->
+      <div class="flex flex-col items-center justify-center my-6 reveal">
+        <div class="relative w-28 h-28 flex items-center justify-center">
+          <!-- Aro de hojas SVG personalizado -->
+          <svg class="absolute inset-0 w-full h-full text-customBlue opacity-70" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+            <circle cx="50" cy="50" r="42" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M 50 6 A 44 44 0 0 1 94 50" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M 50 94 A 44 44 0 0 1 6 50" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="50" cy="8" r="2" fill="currentColor"/>
+            <circle cx="92" cy="50" r="2" fill="currentColor"/>
+            <circle cx="50" cy="92" r="2" fill="currentColor"/>
+            <circle cx="8" cy="50" r="2" fill="currentColor"/>
+          </svg>
+          <div class="font-serif text-2xl font-bold text-customBlue flex items-center gap-1.5 z-10 pt-1">
+            <span>G</span>
+            <i class="fa-solid fa-heart text-xs text-rose-800"></i>
+            <span>L</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frase bonita de cierre estilizada -->
+      <div class="max-w-xs mx-auto reveal space-y-4">
+        <p class="font-serif italic text-lg sm:text-xl text-gray-800 leading-relaxed">
+          "Con mucha ilusión queremos vivir este momento rodeados de personas que han formado parte de nuestra historia. Será un honor contar con tu presencia."
+        </p>
+        <p class="font-serif text-2xl font-bold text-customBlue tracking-wide pt-2">
+          ¡Te esperamos!
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Reproductor de Música de Cierre -->
     <section class="p-6 text-center border-t border-silver/20 reveal">
       <div class="w-48 h-1 bg-silver/40 rounded-full mx-auto mb-4 relative overflow-hidden">
         <div class="w-1/3 h-full bg-customBlue"></div>
@@ -591,22 +634,18 @@
       const innerShadow = document.getElementById('innerShadow');
       const envelopeScreen = document.getElementById('envelopeScreen');
 
-      // 1. Activar contenido e imagen héroe inmediatamente
       document.getElementById('mainContainer').classList.add('hero-active');
 
-      // 2. Apertura de solapas y aclarado progresivo de la sombra interior
       doorLeft.classList.add('open-left');
       doorRight.classList.add('open-right');
       innerShadow.style.opacity = '0';
 
-      // 3. Audio
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
         document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
       }).catch(e => console.log("Audio play prevented:", e));
 
-      // 4. Retirar pantalla del sobre tras el giro completo
       setTimeout(() => {
         envelopeScreen.style.opacity = '0';
         setTimeout(() => {
