@@ -46,20 +46,48 @@
     html {
       scroll-behavior: smooth;
     }
+    
+    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D (GATEFOLD) */
+    .gatefold-container {
+      perspective: 1200px;
+    }
+    
+    .door-left {
+      transform-origin: left center;
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background-image: url('sobre.jpg');
+      background-size: 200% 100%;
+      background-position: left center;
+    }
+
+    .door-right {
+      transform-origin: right center;
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background-image: url('sobre.jpg');
+      background-size: 200% 100%;
+      background-position: right center;
+    }
+
+    .open-left {
+      transform: rotateY(-110deg);
+    }
+
+    .open-right {
+      transform: rotateY(110deg);
+    }
+
     @keyframes pulse-silver {
       0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.5); }
       50% { box-shadow: 0 0 14px rgba(229, 229, 229, 0); }
     }
-    .pulse-silver {
-      animation: pulse-silver 2s infinite;
-    }
+    
     .wax-seal {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s ease, opacity 0.6s ease;
     }
     .wax-seal:hover {
-      transform: scale(1.08) rotate(5deg);
+      transform: scale(1.08);
     }
-    
+
     /* EFECTO DE APARICIÓN EN SCROLL */
     .reveal {
       opacity: 0;
@@ -72,7 +100,7 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES PANTALLA HÉROE (3.5 SEGUNDOS) */
+    /* ANIMACIONES PANTALLA HÉROE */
     .anim-giuliana {
       opacity: 0;
       transform: translateX(-50px);
@@ -140,41 +168,26 @@
   <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO -->
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
-    <!-- ==================== ENVELOPE / SCREEN OVERLAY ==================== -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue transition-opacity duration-1000">
+    <!-- ==================== SOBRE INTERACTIVO CON APERTURA DE PUERTAS 3D ==================== -->
+    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue gatefold-container overflow-hidden transition-opacity duration-1000">
       
-      <div class="text-center p-6 w-full max-w-xs relative z-10 flex flex-col items-center">
-        <span class="inline-block px-3 py-1 bg-silver/10 border border-silver/30 text-silver text-[10px] tracking-widest uppercase rounded-full mb-4">
-          <i class="fa-solid fa-church mr-1"></i> Matrimonio Religioso
-        </span>
+      <!-- Solapa Izquierda -->
+      <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/30 z-20"></div>
 
-        <div class="font-script text-5xl sm:text-6xl text-silver-light mb-2 tracking-wide drop-shadow-md">
-          <span>Giuliana</span>
-          <span class="text-3xl text-silver block my-1">&</span>
-          <span>Luis</span>
-        </div>
+      <!-- Solapa Derecha -->
+      <div id="doorRight" class="door-right absolute top-0 right-0 w-1/2 h-full shadow-2xl border-l border-gray-400/30 z-20"></div>
 
-        <div class="my-4 mx-auto max-w-xs rounded-xl overflow-hidden shadow-2xl border border-silver/30">
-          <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
-        </div>
-
-        <p class="font-serif italic text-silver/90 text-base sm:text-lg mb-6 leading-snug">
-          ¡Nos casamos!<br>Acompáñanos a celebrar este gran día.
-        </p>
-
-        <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none mb-2">
-          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-silver-dark via-silver to-white shadow-xl flex items-center justify-center border-2 border-silver-shine pulse-silver">
-            <div class="w-16 h-16 rounded-full border border-customBlue/20 flex flex-col items-center justify-center text-customBlue">
-              <i class="fa-solid fa-envelope-open text-xl mb-0.5 group-hover:scale-110 transition-transform"></i>
-              <span class="text-[9px] font-bold tracking-widest uppercase">Abrir</span>
-            </div>
-          </div>
+      <!-- Botón Central (Sello de Cera) -->
+      <div id="sealContainer" class="absolute z-30 flex flex-col items-center justify-center text-center px-4">
+        <button onclick="openEnvelope()" class="wax-seal group focus:outline-none mb-3">
+          <img src="boton.jpg" alt="Abrir Invitación" class="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-2xl">
         </button>
 
-        <p class="text-[11px] text-silver/70 mt-2 font-light tracking-wide flex items-center justify-center gap-1">
-          <i class="fa-solid fa-volume-high text-xs"></i> Sube el volumen para escuchar la música
+        <p class="text-[12px] font-serif italic text-customBlue font-semibold tracking-wide bg-white/80 backdrop-blur-md px-3 py-1 rounded-full shadow border border-silver/40 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high text-xs text-customBlue"></i> Sube el volumen para escuchar la música
         </p>
       </div>
+
     </div>
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
@@ -424,7 +437,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- MESA DE REGALOS (TEXTO ACTUALIZADO Y UNIFICADO) -->
+      <!-- MESA DE REGALOS -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Mesa de Regalos</h3>
@@ -592,20 +605,35 @@
     }
 
     function openEnvelope() {
-      const envelope = document.getElementById('envelopeScreen');
-      envelope.style.opacity = '0';
-      
-      setTimeout(() => {
-        envelope.style.display = 'none';
-        document.getElementById('mainContainer').classList.add('hero-active');
-        checkReveal();
-      }, 800);
-      
+      const doorLeft = document.getElementById('doorLeft');
+      const doorRight = document.getElementById('doorRight');
+      const sealContainer = document.getElementById('sealContainer');
+      const envelopeScreen = document.getElementById('envelopeScreen');
+
+      // Animación de desvanecer el botón
+      sealContainer.style.opacity = '0';
+      sealContainer.style.pointerEvents = 'none';
+
+      // Apertura 3D de solapas hacia afuera
+      doorLeft.classList.add('open-left');
+      doorRight.classList.add('open-right');
+
+      // Reproducción de música
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
         document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
       }).catch(e => console.log("Audio play prevented:", e));
+
+      // Quitar overlay y activar animaciones internas
+      setTimeout(() => {
+        envelopeScreen.style.opacity = '0';
+        setTimeout(() => {
+          envelopeScreen.style.display = 'none';
+          document.getElementById('mainContainer').classList.add('hero-active');
+          checkReveal();
+        }, 1000);
+      }, 1200);
     }
 
     function toggleAudio() {
