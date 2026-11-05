@@ -47,7 +47,7 @@
       scroll-behavior: smooth;
     }
     
-    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D PAUSADA Y SIN DEFORMACIÓN */
+    /* APERTURA DE PUERTAS 3D DURACIÓN 6S */
     .gatefold-container {
       perspective: 1500px;
       transform-style: preserve-3d;
@@ -55,7 +55,7 @@
     
     .door-left {
       transform-origin: left center;
-      transition: transform 4.5s cubic-bezier(0.25, 1, 0.3, 1);
+      transition: transform 6s cubic-bezier(0.25, 1, 0.3, 1);
       background-image: url('sobre.jpg');
       background-size: 200% 100%;
       background-position: left center;
@@ -65,7 +65,7 @@
 
     .door-right {
       transform-origin: right center;
-      transition: transform 4.5s cubic-bezier(0.25, 1, 0.3, 1);
+      transition: transform 6s cubic-bezier(0.25, 1, 0.3, 1);
       background-image: url('sobre.jpg');
       background-size: 200% 100%;
       background-position: right center;
@@ -81,6 +81,11 @@
       transform: rotateY(115deg);
     }
 
+    /* CAPA DE SOMBRA INTERIOR QUE SE ACLARA */
+    .inner-shadow {
+      transition: opacity 6s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
     /* EFECTO DE APARICIÓN EN SCROLL */
     .reveal {
       opacity: 0;
@@ -93,35 +98,35 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES PANTALLA HÉROE */
+    /* ANIMACIONES PANTALLA HÉROE PARALELAS A LA APERTURA DE HOJAS */
     .anim-giuliana {
       opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1), transform 3.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-40px);
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
     }
     .anim-ampersand {
       opacity: 0;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.0s;
     }
     .anim-luis {
       opacity: 0;
-      transform: translateX(50px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      transform: translateX(40px);
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
     }
     .anim-line {
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.0s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.0s;
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s;
     }
     .anim-phrase {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s;
+      transform: translateY(30px);
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s;
     }
     .anim-arrow {
       opacity: 0;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 2.0s;
+      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 2.2s;
     }
 
     /* ESTADO ACTIVO AL ABRIR EL SOBRE */
@@ -161,9 +166,12 @@
   <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO -->
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
-    <!-- ==================== SOBRE INTERACTIVO CON APERTURA 3D EN CUALQUIER PARTE ==================== -->
+    <!-- ==================== SOBRE INTERACTIVO CON APERTURA 3D DE 6S Y SOMBRA INTERIOR ==================== -->
     <div id="envelopeScreen" onclick="openEnvelope()" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
       
+      <!-- Capa de Sombra Interior -->
+      <div id="innerShadow" class="inner-shadow absolute inset-0 bg-black/60 pointer-events-none z-10 opacity-100"></div>
+
       <!-- Solapa Izquierda -->
       <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/20 z-20"></div>
 
@@ -593,28 +601,32 @@
 
       const doorLeft = document.getElementById('doorLeft');
       const doorRight = document.getElementById('doorRight');
+      const innerShadow = document.getElementById('innerShadow');
       const envelopeScreen = document.getElementById('envelopeScreen');
 
-      // Apertura 3D pausada de 4.5 segundos
+      // 1. Iniciar inmediatamente el desplegado de las letras y foto héroe
+      document.getElementById('mainContainer').classList.add('hero-active');
+
+      // 2. Apertura 3D de 6 segundos y disipación progresiva de sombra
       doorLeft.classList.add('open-left');
       doorRight.classList.add('open-right');
+      innerShadow.style.opacity = '0';
 
-      // Reproducción de música
+      // 3. Reproducción de música instantánea
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
         document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
       }).catch(e => console.log("Audio play prevented:", e));
 
-      // Transición progresiva del sobre
+      // 4. Retiro del sobre tras completarse la rotación
       setTimeout(() => {
         envelopeScreen.style.opacity = '0';
         setTimeout(() => {
           envelopeScreen.style.display = 'none';
-          document.getElementById('mainContainer').classList.add('hero-active');
           checkReveal();
         }, 1000);
-      }, 3500);
+      }, 4800);
     }
 
     function toggleAudio() {
