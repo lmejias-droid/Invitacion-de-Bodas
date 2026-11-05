@@ -98,38 +98,38 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES PANTALLA HÉROE PARALELAS A LA APERTURA DE HOJAS */
+    /* ANIMACIONES PANTALLA HÉROE */
     .anim-giuliana {
       opacity: 0;
       transform: translateX(-40px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
     }
     .anim-ampersand {
       opacity: 0;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.0s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
     }
     .anim-luis {
       opacity: 0;
       transform: translateX(40px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
     }
     .anim-line {
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.0s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 1.0s;
     }
     .anim-phrase {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s, transform 3.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.4s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 1.4s;
     }
     .anim-arrow {
       opacity: 0;
-      transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 2.2s;
+      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.8s;
     }
 
-    /* ESTADO ACTIVO AL ABRIR EL SOBRE */
+    /* ESTADO ACTIVO INMEDIATO AL ABRIR */
     .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
     .hero-active .anim-ampersand { opacity: 1; }
     .hero-active .anim-luis { opacity: 1; transform: translateX(0); }
@@ -166,10 +166,10 @@
   <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO -->
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
-    <!-- ==================== SOBRE INTERACTIVO CON APERTURA 3D DE 6S Y SOMBRA INTERIOR ==================== -->
-    <div id="envelopeScreen" onclick="openEnvelope()" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
+    <!-- ==================== SOBRE INTERACTIVO (FONDO TRANSPARENTE PARA MOSTRAR EL HÉROE ATRÁS) ==================== -->
+    <div id="envelopeScreen" onclick="openEnvelope()" class="fixed inset-0 z-50 flex items-center justify-center bg-transparent gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
       
-      <!-- Capa de Sombra Interior -->
+      <!-- Capa de Sombra Interior que se disipa -->
       <div id="innerShadow" class="inner-shadow absolute inset-0 bg-black/60 pointer-events-none z-10 opacity-100"></div>
 
       <!-- Solapa Izquierda -->
@@ -604,29 +604,29 @@
       const innerShadow = document.getElementById('innerShadow');
       const envelopeScreen = document.getElementById('envelopeScreen');
 
-      // 1. Iniciar inmediatamente el desplegado de las letras y foto héroe
+      // 1. Activar inmediatamente el contenido héroe al hacer clic
       document.getElementById('mainContainer').classList.add('hero-active');
 
-      // 2. Apertura 3D de 6 segundos y disipación progresiva de sombra
+      // 2. Apertura 3D de 6 segundos y aclarado progresivo de la sombra
       doorLeft.classList.add('open-left');
       doorRight.classList.add('open-right');
       innerShadow.style.opacity = '0';
 
-      // 3. Reproducción de música instantánea
+      // 3. Inicio de la música
       const audio = document.getElementById('bgMusic');
       audio.currentTime = 21;
       audio.play().then(() => {
         document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
       }).catch(e => console.log("Audio play prevented:", e));
 
-      // 4. Retiro del sobre tras completarse la rotación
+      // 4. Retiro del sobre cuando termina el giro
       setTimeout(() => {
         envelopeScreen.style.opacity = '0';
         setTimeout(() => {
           envelopeScreen.style.display = 'none';
           checkReveal();
-        }, 1000);
-      }, 4800);
+        }, 800);
+      }, 5500);
     }
 
     function toggleAudio() {
