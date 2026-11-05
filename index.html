@@ -47,45 +47,38 @@
       scroll-behavior: smooth;
     }
     
-    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D (GATEFOLD) */
+    /* EFECTO Y ANIMACIÓN DE PUERTAS 3D TRIPLICADA Y SIN DEFORMACIÓN */
     .gatefold-container {
-      perspective: 1200px;
+      perspective: 1500px;
+      transform-style: preserve-3d;
     }
     
     .door-left {
       transform-origin: left center;
-      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 4.5s cubic-bezier(0.25, 1, 0.3, 1);
       background-image: url('sobre.jpg');
       background-size: 200% 100%;
       background-position: left center;
+      background-repeat: no-repeat;
+      will-change: transform;
     }
 
     .door-right {
       transform-origin: right center;
-      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 4.5s cubic-bezier(0.25, 1, 0.3, 1);
       background-image: url('sobre.jpg');
       background-size: 200% 100%;
       background-position: right center;
+      background-repeat: no-repeat;
+      will-change: transform;
     }
 
     .open-left {
-      transform: rotateY(-110deg);
+      transform: rotateY(-115deg);
     }
 
     .open-right {
-      transform: rotateY(110deg);
-    }
-
-    @keyframes pulse-silver {
-      0%, 100% { box-shadow: 0 0 0 rgba(229, 229, 229, 0.5); }
-      50% { box-shadow: 0 0 14px rgba(229, 229, 229, 0); }
-    }
-    
-    .wax-seal {
-      transition: transform 0.4s ease, opacity 0.6s ease;
-    }
-    .wax-seal:hover {
-      transform: scale(1.08);
+      transform: rotateY(115deg);
     }
 
     /* EFECTO DE APARICIÓN EN SCROLL */
@@ -168,25 +161,14 @@
   <!-- Main Container Mockup con TEXTURA DE PAPEL PRENSADO -->
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
-    <!-- ==================== SOBRE INTERACTIVO CON APERTURA DE PUERTAS 3D ==================== -->
-    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue gatefold-container overflow-hidden transition-opacity duration-1000">
+    <!-- ==================== SOBRE INTERACTIVO CON APERTURA 3D EN CUALQUIER PARTE ==================== -->
+    <div id="envelopeScreen" onclick="openEnvelope()" class="fixed inset-0 z-50 flex items-center justify-center bg-customBlue gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
       
       <!-- Solapa Izquierda -->
-      <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/30 z-20"></div>
+      <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/20 z-20"></div>
 
       <!-- Solapa Derecha -->
-      <div id="doorRight" class="door-right absolute top-0 right-0 w-1/2 h-full shadow-2xl border-l border-gray-400/30 z-20"></div>
-
-      <!-- Botón Central (Sello de Cera) -->
-      <div id="sealContainer" class="absolute z-30 flex flex-col items-center justify-center text-center px-4">
-        <button onclick="openEnvelope()" class="wax-seal group focus:outline-none mb-3">
-          <img src="boton.jpg" alt="Abrir Invitación" class="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-2xl">
-        </button>
-
-        <p class="text-[12px] font-serif italic text-customBlue font-semibold tracking-wide bg-white/80 backdrop-blur-md px-3 py-1 rounded-full shadow border border-silver/40 flex items-center gap-1.5">
-          <i class="fa-solid fa-volume-high text-xs text-customBlue"></i> Sube el volumen para escuchar la música
-        </p>
-      </div>
+      <div id="doorRight" class="door-right absolute top-0 right-0 w-1/2 h-full shadow-2xl border-l border-gray-400/20 z-20"></div>
 
     </div>
 
@@ -551,6 +533,7 @@
   <!-- SCRIPT LÓGICO Y ANIMACIONES -->
   <script>
     let selectedAttendance = null;
+    let isOpening = false;
 
     function selectOption(option) {
       selectedAttendance = option;
@@ -605,86 +588,15 @@
     }
 
     function openEnvelope() {
+      if (isOpening) return;
+      isOpening = true;
+
       const doorLeft = document.getElementById('doorLeft');
       const doorRight = document.getElementById('doorRight');
-      const sealContainer = document.getElementById('sealContainer');
       const envelopeScreen = document.getElementById('envelopeScreen');
 
-      // Animación de desvanecer el botón
-      sealContainer.style.opacity = '0';
-      sealContainer.style.pointerEvents = 'none';
-
-      // Apertura 3D de solapas hacia afuera
+      // Apertura 3D pausada de 4.5 segundos
       doorLeft.classList.add('open-left');
       doorRight.classList.add('open-right');
 
       // Reproducción de música
-      const audio = document.getElementById('bgMusic');
-      audio.currentTime = 21;
-      audio.play().then(() => {
-        document.getElementById('playIcon').className = 'fa-solid fa-pause text-base';
-      }).catch(e => console.log("Audio play prevented:", e));
-
-      // Quitar overlay y activar animaciones internas
-      setTimeout(() => {
-        envelopeScreen.style.opacity = '0';
-        setTimeout(() => {
-          envelopeScreen.style.display = 'none';
-          document.getElementById('mainContainer').classList.add('hero-active');
-          checkReveal();
-        }, 1000);
-      }, 1200);
-    }
-
-    function toggleAudio() {
-      const audio = document.getElementById('bgMusic');
-      const icon = document.getElementById('playIcon');
-      if (audio.paused) {
-        if (audio.currentTime < 21) audio.currentTime = 21;
-        audio.play();
-        icon.className = 'fa-solid fa-pause text-base';
-      } else {
-        audio.pause();
-        icon.className = 'fa-solid fa-play text-base';
-      }
-    }
-
-    function preventEarlyPlayback(audio) {
-      if (audio.currentTime < 21) {
-        audio.currentTime = 21;
-      }
-    }
-
-    function checkReveal() {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
-      
-      reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        const elementBottom = el.getBoundingClientRect().bottom;
-        const elementVisible = 100;
-        
-        if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
-          el.classList.add('active');
-        } else {
-          el.classList.remove('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', checkReveal);
-
-    const targetDate = new Date('December 4, 2026 15:00:00').getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance > 0) {
-        document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-        document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
