@@ -72,7 +72,7 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES PANTALLA HÉROE A 3.5 SEGUNDOS */
+    /* ANIMACIONES PANTALLA HÉROE (3.5 SEGUNDOS) */
     .anim-giuliana {
       opacity: 0;
       transform: translateX(-50px);
@@ -102,6 +102,14 @@
       opacity: 0;
       transition: opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1) 2.0s;
     }
+
+    /* ESTADO ACTIVO AL ABRIR EL SOBRE */
+    .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
+    .hero-active .anim-ampersand { opacity: 1; }
+    .hero-active .anim-luis { opacity: 1; transform: translateX(0); }
+    .hero-active .anim-line { opacity: 1; transform: scaleX(1); }
+    .hero-active .anim-phrase { opacity: 1; transform: translateY(0); }
+    .hero-active .anim-arrow { opacity: 1; }
 
     /* TEXTURA RUGOSA DE PAPEL PRENSADO LUXURY */
     .luxury-pressed-paper {
@@ -172,12 +180,12 @@
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
-    <!-- SECCIÓN HÉROE INICIAL ANIMADA -->
-    <header class="relative w-full h-[95vh] flex flex-col items-center justify-end pb-10 text-center px-6 overflow-hidden" id="heroHeader">
-      <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover object-center z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/50 via-customBlue/50 to-customBlueDark/90 z-10"></div>
+    <!-- SECCIÓN HÉROE INICIAL ANIMADA (LETRAS ABAJO Y CORREGIDAS) -->
+    <header class="relative w-full h-[95vh] flex flex-col items-center justify-end pb-8 text-center px-6 overflow-hidden" id="heroHeader">
+      <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover object-top z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/30 via-customBlue/40 to-customBlueDark/90 z-10"></div>
 
-      <div class="relative z-20 flex flex-col items-center justify-center space-y-3">
+      <div class="relative z-20 flex flex-col items-center justify-center space-y-2">
         <div class="font-script text-5xl sm:text-6xl text-silver-light drop-shadow-lg flex flex-col items-center gap-0.5">
           <span class="anim-giuliana">Giuliana</span>
           <span class="text-2xl text-silver my-0.5 anim-ampersand">&</span>
@@ -186,12 +194,11 @@
 
         <div class="w-20 h-[1px] bg-silver/50 my-1 anim-line"></div>
 
-        <!-- FRASE GUÍA TIPOGRÁFICA -->
         <p class="font-serif italic text-lg sm:text-xl text-silver-shine max-w-xs leading-relaxed drop-shadow-md font-medium anim-phrase">
           "Te elijo hoy y por el resto de mi vida"
         </p>
 
-        <div class="pt-4 anim-arrow">
+        <div class="pt-3 anim-arrow">
           <div class="animate-bounce">
             <i class="fa-solid fa-chevron-down text-silver-light text-xl opacity-80"></i>
           </div>
@@ -388,7 +395,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- UN DETALLE ESPECIAL (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
+      <!-- UN DETALLE ESPECIAL -->
       <div class="p-6 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-heart text-customBlue text-xl mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Un detalle especial</h3>
@@ -399,7 +406,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- MESA DE REGALOS (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
+      <!-- MESA DE REGALOS -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Mesa de Regalos</h3>
@@ -429,7 +436,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- RECUADRO GABRIEL Y JULIÁN (CON TIPOGRAFÍA CORMORANT GARAMOND ITALIC) -->
+      <!-- RECUADRO GABRIEL Y JULIÁN -->
       <div class="p-6 bg-customBlue text-silver rounded-2xl border border-silver/30 shadow-xl max-w-xs mx-auto text-center reveal">
         <div class="flex items-center justify-center text-silver-shine text-xl mb-3 opacity-90">
           <i class="fa-solid fa-moon"></i>
