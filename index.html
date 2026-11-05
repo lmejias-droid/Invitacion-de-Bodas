@@ -640,4 +640,32 @@
       const reveals = document.querySelectorAll('.reveal');
       const windowHeight = window.innerHeight;
       
-      reve
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementBottom = el.getBoundingClientRect().bottom;
+        const elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkReveal);
+
+    const targetDate = new Date('December 4, 2026 15:00:00').getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance > 0) {
+        document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
