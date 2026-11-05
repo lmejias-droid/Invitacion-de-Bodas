@@ -158,8 +158,9 @@
           <img src="portada.jpg" alt="Giuliana y Luis" class="w-full h-auto object-cover">
         </div>
 
-        <p class="font-serif italic text-silver/80 text-sm mb-6">
-          ¡Nos casamos! Acompáñanos a celebrar este gran día.
+        <!-- FRASE PORTADA CON DOS LÍNEAS Y MAYOR TAMAÑO DE LETRA -->
+        <p class="font-serif italic text-silver/90 text-base sm:text-lg mb-6 leading-snug">
+          ¡Nos casamos!<br>Acompáñanos a celebrar este gran día.
         </p>
 
         <button onclick="openEnvelope()" class="wax-seal group relative flex flex-col items-center justify-center focus:outline-none mb-2">
@@ -447,7 +448,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- NUEVO APARTADO: CONFIRMACIÓN DE ASISTENCIA INTERACTIVA CON ESTILO TARJETA -->
+      <!-- CONFIRMACIÓN DE ASISTENCIA INTERACTIVA CON FECHA LÍMITE DEBAJO DEL BOTÓN -->
       <div class="reveal max-w-xs mx-auto">
         <div class="bg-white/95 backdrop-blur-md p-6 rounded-3xl border-2 border-customBlue/20 shadow-xl text-left">
           
@@ -455,7 +456,6 @@
             Confirmación de asistencia
           </h3>
 
-          <!-- Formulario interactivo -->
           <form id="rsvpForm" onsubmit="sendRSVP(event)" class="space-y-4">
             
             <div>
@@ -472,14 +472,12 @@
               </p>
               
               <div class="space-y-2.5">
-                <!-- Opción 1: Sí -->
                 <button type="button" id="btnYes" onclick="selectOption('yes')" 
                   class="w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between">
                   <span>Sí, ¡ahí estaré!</span>
                   <i id="iconYes" class="fa-regular fa-circle text-gray-400"></i>
                 </button>
 
-                <!-- Opción 2: No -->
                 <button type="button" id="btnNo" onclick="selectOption('no')" 
                   class="w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between">
                   <span>No podré asistir, pero los llevo en mi corazón</span>
@@ -493,6 +491,11 @@
               class="w-full py-3 px-4 mt-4 bg-customBlue text-silver font-serif italic text-base font-semibold rounded-2xl shadow-lg hover:bg-customBlueLight active:scale-[0.98] transition-all border border-silver/30 flex items-center justify-center gap-2">
               <i class="fa-brands fa-whatsapp text-lg"></i> Click aquí para confirmar
             </button>
+            
+            <!-- FRASE DE AGRADECIMIENTO Y FECHA LÍMITE (DEBAJO DEL BOTÓN) -->
+            <p class="font-serif italic text-lg text-gray-700 text-center leading-relaxed pt-3">
+              Con mucho cariño, te agradecemos que nos confirmes tu asistencia antes del 15 de noviembre.
+            </p>
           </form>
 
         </div>
@@ -577,11 +580,9 @@
       const message = `¡Hola Giuliana y Luis! Soy *${nameInput}*.\n\n${answerText}`;
       const encodedMsg = encodeURIComponent(message);
 
-      // Números de WhatsApp de Giuliana y Luis
       const phoneGiuliana = "51986247483";
       const phoneLuis = "51961870511";
 
-      // Abre WhatsApp para enviar la respuesta a Luis y luego prepara a Giuliana
       window.open(`https://wa.me/${phoneLuis}?text=${encodedMsg}`, '_blank');
       setTimeout(() => {
         window.open(`https://wa.me/${phoneGiuliana}?text=${encodedMsg}`, '_blank');
