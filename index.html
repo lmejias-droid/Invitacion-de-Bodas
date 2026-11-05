@@ -179,7 +179,7 @@
 
     <!-- ==================== CONTENIDO DE LA INVITACIÓN ==================== -->
     
-    <!-- SECCIÓN HÉROE INICIAL ANIMADA (NOMBRES POSICIONADOS SOBRE BRAZOS/PECHO) -->
+    <!-- SECCIÓN HÉROE INICIAL ANIMADA -->
     <header class="relative w-full h-[95vh] flex flex-col items-center justify-center pt-28 pb-6 text-center px-6 overflow-hidden" id="heroHeader">
       <img src="foto_novios.jpg" alt="Giuliana & Luis" class="absolute inset-0 w-full h-full object-cover object-top z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-customBlueDark/25 via-customBlue/40 to-customBlueDark/90 z-10"></div>
@@ -447,18 +447,54 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <div class="reveal">
-        <i class="fa-solid fa-envelope-open-text text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Confirmar Asistencia</h3>
-        <p class="text-[14px] sm:text-[15px] text-gray-600 my-2">Por favor confírmanos tu asistencia vía WhatsApp:</p>
+      <!-- NUEVO APARTADO: CONFIRMACIÓN DE ASISTENCIA INTERACTIVA CON ESTILO TARJETA -->
+      <div class="reveal max-w-xs mx-auto">
+        <div class="bg-white/95 backdrop-blur-md p-6 rounded-3xl border-2 border-customBlue/20 shadow-xl text-left">
+          
+          <h3 class="font-serif text-2xl font-bold text-customBlue text-center mb-5 tracking-wide">
+            Confirmación de asistencia
+          </h3>
 
-        <div class="flex flex-col gap-2 mt-4 max-w-xs mx-auto">
-          <a href="https://wa.me/51986247483?text=¡Hola%20Giuliana!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-customBlue text-silver hover:bg-customBlueLight text-xs font-semibold rounded-full shadow transition-all border border-silver/20">
-            <i class="fa-brands fa-whatsapp text-sm"></i> Giuliana
-          </a>
-          <a href="https://wa.me/51961870511?text=¡Hola%20Luis!%20Confirmo%20mi%20asistencia%20a%20su%20boda." target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-customBlue text-silver hover:bg-customBlueLight text-xs font-semibold rounded-full shadow transition-all border border-silver/20">
-            <i class="fa-brands fa-whatsapp text-sm"></i> Luis
-          </a>
+          <!-- Formulario interactivo -->
+          <form id="rsvpForm" onsubmit="sendRSVP(event)" class="space-y-4">
+            
+            <div>
+              <label for="guestName" class="block font-serif italic text-base text-gray-700 mb-1">
+                Tu nombre
+              </label>
+              <input type="text" id="guestName" required placeholder="Escribe tu nombre completo aquí..." 
+                class="w-full px-4 py-2.5 rounded-xl border border-gray-300 bg-white text-gray-800 text-sm focus:outline-none focus:border-customBlue focus:ring-1 focus:ring-customBlue transition">
+            </div>
+
+            <div class="pt-1">
+              <p class="font-serif italic text-base text-gray-700 mb-2">
+                ¿Podrás acompañarnos en nuestro gran día?
+              </p>
+              
+              <div class="space-y-2.5">
+                <!-- Opción 1: Sí -->
+                <button type="button" id="btnYes" onclick="selectOption('yes')" 
+                  class="w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between">
+                  <span>Sí, ¡ahí estaré!</span>
+                  <i id="iconYes" class="fa-regular fa-circle text-gray-400"></i>
+                </button>
+
+                <!-- Opción 2: No -->
+                <button type="button" id="btnNo" onclick="selectOption('no')" 
+                  class="w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between">
+                  <span>No podré asistir, pero los llevo en mi corazón</span>
+                  <i id="iconNo" class="fa-regular fa-circle text-gray-400"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Botón Final de Enviar -->
+            <button type="submit" 
+              class="w-full py-3 px-4 mt-4 bg-customBlue text-silver font-serif italic text-base font-semibold rounded-2xl shadow-lg hover:bg-customBlueLight active:scale-[0.98] transition-all border border-silver/30 flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Click aquí para confirmar
+            </button>
+          </form>
+
         </div>
       </div>
 
@@ -496,6 +532,62 @@
 
   <!-- SCRIPT LÓGICO Y ANIMACIONES -->
   <script>
+    let selectedAttendance = null;
+
+    function selectOption(option) {
+      selectedAttendance = option;
+      const btnYes = document.getElementById('btnYes');
+      const btnNo = document.getElementById('btnNo');
+      const iconYes = document.getElementById('iconYes');
+      const iconNo = document.getElementById('iconNo');
+
+      if (option === 'yes') {
+        btnYes.className = "w-full py-3 px-4 rounded-xl border-2 border-customBlue bg-customBlue/10 text-customBlue font-serif italic text-sm text-left font-bold transition flex items-center justify-between";
+        iconYes.className = "fa-solid fa-circle-check text-customBlue";
+
+        btnNo.className = "w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between opacity-60";
+        iconNo.className = "fa-regular fa-circle text-gray-400";
+      } else {
+        btnNo.className = "w-full py-3 px-4 rounded-xl border-2 border-customBlue bg-customBlue/10 text-customBlue font-serif italic text-sm text-left font-bold transition flex items-center justify-between";
+        iconNo.className = "fa-solid fa-circle-check text-customBlue";
+
+        btnYes.className = "w-full py-3 px-4 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 font-serif italic text-sm text-left hover:bg-gray-200 transition flex items-center justify-between opacity-60";
+        iconYes.className = "fa-regular fa-circle text-gray-400";
+      }
+    }
+
+    function sendRSVP(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById('guestName').value.trim();
+
+      if (!nameInput) {
+        alert("Por favor ingresa tu nombre.");
+        return;
+      }
+
+      if (!selectedAttendance) {
+        alert("Por favor selecciona una de las opciones de asistencia.");
+        return;
+      }
+
+      const answerText = selectedAttendance === 'yes' 
+        ? "¡Sí, asistiré con mucho gusto a su boda!" 
+        : "Lamentablemente no podré asistir, pero les envío un fuerte abrazo y los llevo en mi corazón.";
+
+      const message = `¡Hola Giuliana y Luis! Soy *${nameInput}*.\n\n${answerText}`;
+      const encodedMsg = encodeURIComponent(message);
+
+      // Números de WhatsApp de Giuliana y Luis
+      const phoneGiuliana = "51986247483";
+      const phoneLuis = "51961870511";
+
+      // Abre WhatsApp para enviar la respuesta a Luis y luego prepara a Giuliana
+      window.open(`https://wa.me/${phoneLuis}?text=${encodedMsg}`, '_blank');
+      setTimeout(() => {
+        window.open(`https://wa.me/${phoneGiuliana}?text=${encodedMsg}`, '_blank');
+      }, 1000);
+    }
+
     function openEnvelope() {
       const envelope = document.getElementById('envelopeScreen');
       envelope.style.opacity = '0';
