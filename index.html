@@ -86,11 +86,11 @@
       transition: opacity 6s cubic-bezier(0.25, 1, 0.3, 1);
     }
 
-    /* REVELADO ÁGIL EN SCROLL */
+    /* REVELADO ÁGIL Y SIMÉTRICO EN SCROLL */
     .reveal {
       opacity: 0;
       transform: translateY(25px);
-      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
       will-change: opacity, transform;
     }
     .reveal.active {
@@ -98,35 +98,35 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES HÉROE (ENTRADA Y SALIDA DINÁMICA CON SCROLL) */
+    /* ANIMACIONES HÉROE (ENTRADA Y SALIDA ÁGIL AL BAJAR Y SUBIR) */
     .anim-giuliana {
       opacity: 0;
       transform: translateX(-40px);
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-ampersand {
       opacity: 0;
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-luis {
       opacity: 0;
       transform: translateX(40px);
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-line {
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-phrase {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-arrow {
       opacity: 0;
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
@@ -378,20 +378,25 @@
         </h3>
         <div class="w-20 h-[2px] bg-silver/40 mx-auto mb-3"></div>
         
-        <p class="font-serif text-[15px] tracking-widest text-silver/80 uppercase font-semibold mb-4 leading-relaxed">
+        <p class="font-serif text-[15px] tracking-widest text-silver/80 uppercase font-semibold mb-3 leading-relaxed">
           Formal
         </p>
 
-        <p class="font-serif text-[15px] text-silver-shine italic mb-4 leading-relaxed">
-          Evitar colores: <span class="font-semibold text-white">blanco, ivory, crema, beige, nude</span>
+        <p class="font-serif italic text-base sm:text-lg text-silver-shine font-medium mb-3 leading-relaxed">
+          "Prepárense para una boda llena de colores, dejen el blanco para la novia y el azul para el novio."
         </p>
 
-        <div class="flex items-center justify-center gap-2.5">
-          <div class="w-7 h-7 rounded-full bg-white border-2 border-silver shadow-md" title="Blanco"></div>
-          <div class="w-7 h-7 rounded-full bg-[#fffff0] border-2 border-silver/80 shadow-md" title="Ivory"></div>
-          <div class="w-7 h-7 rounded-full bg-[#fdfbf7] border-2 border-silver/80 shadow-md" title="Crema"></div>
-          <div class="w-7 h-7 rounded-full bg-[#f5f0eb] border-2 border-silver/80 shadow-md" title="Beige"></div>
-          <div class="w-7 h-7 rounded-full bg-[#e8d5c4] border-2 border-silver/80 shadow-md" title="Nude"></div>
+        <p class="font-serif text-xs text-silver/70 italic mb-3 leading-relaxed">
+          Favor de evitar tonos: <span class="text-white font-semibold">blanco, ivory, crema, beige, nude y azul</span>
+        </p>
+
+        <div class="flex items-center justify-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-white border border-silver shadow-md" title="Blanco"></div>
+          <div class="w-6 h-6 rounded-full bg-[#fffff0] border border-silver/80 shadow-md" title="Ivory"></div>
+          <div class="w-6 h-6 rounded-full bg-[#fdfbf7] border border-silver/80 shadow-md" title="Crema"></div>
+          <div class="w-6 h-6 rounded-full bg-[#f5f0eb] border border-silver/80 shadow-md" title="Beige"></div>
+          <div class="w-6 h-6 rounded-full bg-[#e8d5c4] border border-silver/80 shadow-md" title="Nude"></div>
+          <div class="w-6 h-6 rounded-full bg-[#14213D] border border-silver/80 shadow-md" title="Azul"></div>
         </div>
       </div>
 
@@ -677,25 +682,23 @@
     function checkReveal() {
       const windowHeight = window.innerHeight;
 
-      // Manejo dinámico de animación de entrada y salida del Héroe al subir/bajar
+      // Animación de entrada y salida del Héroe
       const heroHeader = document.getElementById('heroHeader');
       if (heroHeader) {
         const heroRect = heroHeader.getBoundingClientRect();
-        if (heroRect.bottom > 150) {
+        if (heroRect.bottom > windowHeight * 0.55) {
           document.getElementById('mainContainer').classList.add('hero-active');
         } else {
           document.getElementById('mainContainer').classList.remove('hero-active');
         }
       }
 
-      // Animación ágil para los elementos con la clase .reveal
+      // Revelado simétrico al scroolear (aparece por abajo y desaparece por arriba)
       const reveals = document.querySelectorAll('.reveal');
+      const margin = 80;
       reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        const elementBottom = el.getBoundingClientRect().bottom;
-        const elementVisible = 30; // Revelado súper rápido al scroolear
-        
-        if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight - margin && rect.bottom > margin) {
           el.classList.add('active');
         } else {
           el.classList.remove('active');
