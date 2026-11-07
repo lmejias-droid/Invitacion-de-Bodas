@@ -86,11 +86,11 @@
       transition: opacity 6s cubic-bezier(0.25, 1, 0.3, 1);
     }
 
-    /* REVELADO EN SCROLL */
+    /* REVELADO ÁGIL EN SCROLL */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: translateY(25px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       will-change: opacity, transform;
     }
     .reveal.active {
@@ -98,35 +98,35 @@
       transform: translateY(0);
     }
 
-    /* ANIMACIONES HÉROE (SIMULTÁNEAS AL SOBRE) */
+    /* ANIMACIONES HÉROE (ENTRADA Y SALIDA DINÁMICA CON SCROLL) */
     .anim-giuliana {
       opacity: 0;
       transform: translateX(-40px);
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-ampersand {
       opacity: 0;
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-luis {
       opacity: 0;
       transform: translateX(40px);
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-line {
       opacity: 0;
       transform: scaleX(0);
       transform-origin: center;
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.0s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 1.0s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-phrase {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.4s, transform 3s cubic-bezier(0.16, 1, 0.3, 1) 1.4s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .anim-arrow {
       opacity: 0;
-      transition: opacity 3s cubic-bezier(0.16, 1, 0.3, 1) 1.8s;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-active .anim-giuliana { opacity: 1; transform: translateX(0); }
@@ -206,11 +206,12 @@
     <!-- Sección Padres -->
     <section class="px-6 py-10 text-center relative">
       <div class="mb-8 bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm relative z-10 reveal">
-        <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Con la bendición de nuestros padres</p>
-        
+        <p class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-2">Con la bendición de nuestros padres</p>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mb-4"></div>
+
         <div class="space-y-4 my-4 font-serif text-base sm:text-lg text-gray-800 leading-relaxed">
           <div>
-            <p class="text-xs text-gray-400 italic mb-0.5">Padres de la Novia:</p>
+            <p class="text-sm text-gray-600 font-semibold italic mb-1">Padres de la Novia:</p>
             <p class="font-bold text-customBlue">Doña María Yolanda Granada Rozas</p>
             <p class="font-bold text-customBlue">& Don José Guido Rodriguez Zuniga</p>
           </div>
@@ -218,7 +219,7 @@
           <div class="w-12 h-[1px] bg-silver/50 mx-auto my-2"></div>
 
           <div>
-            <p class="text-xs text-gray-400 italic mb-0.5">Padres del Novio:</p>
+            <p class="text-sm text-gray-600 font-semibold italic mb-1">Padres del Novio:</p>
             <p class="font-bold text-customBlue">Doña Rosa Yeni Soto Solís</p>
             <p class="font-bold text-customBlue">& Don José Jesús Mejia Torres</p>
           </div>
@@ -227,8 +228,8 @@
 
       <div class="w-16 h-[1px] bg-silver/40 mx-auto my-4 reveal"></div>
 
-      <p class="font-serif italic text-lg sm:text-xl text-gray-700 leading-relaxed px-2 reveal">
-        "Después de recorrer caminos juntos y con la inmensa dicha de ver crecer a nuestra familia junto a nuestros dos pequeños, hemos decidido dar el paso más importante de nuestras vidas."
+      <p class="font-serif italic text-xl sm:text-2xl text-gray-800 leading-relaxed px-2 reveal font-medium">
+        "Hemos compartido sueños, superado desafíos y construido algo maravilloso: una familia. Hoy queremos celebrar el amor que nos trajo hasta aquí y dar juntos uno de los pasos más especiales de nuestra historia"
       </p>
 
       <div class="my-6 flex justify-center items-center reveal">
@@ -251,6 +252,7 @@
         <span class="text-xs uppercase tracking-widest text-silver/70">Viernes</span>
         <div class="text-5xl font-serif text-silver-light font-bold my-1">04</div>
         <span class="text-xs uppercase tracking-widest text-silver/70">Diciembre 2026</span>
+        <div class="w-20 h-[2px] bg-silver/40 mx-auto mt-2"></div>
       </div>
 
       <h3 class="text-xs uppercase tracking-widest text-silver/60 mb-4 reveal">Faltan</h3>
@@ -274,7 +276,8 @@
       </div>
 
       <div class="max-w-xs mx-auto bg-customBlueDark/80 p-5 rounded-2xl border border-silver/20 reveal">
-        <h4 class="font-serif text-lg tracking-widest uppercase mb-4 text-silver-light">El Gran Día</h4>
+        <h4 class="font-serif text-lg tracking-widest uppercase mb-1 text-silver-light">El Gran Día</h4>
+        <div class="w-16 h-[2px] bg-silver/40 mx-auto mb-3"></div>
         <p class="text-xs uppercase tracking-widest text-silver/60 mb-3">Diciembre 2026</p>
         
         <div class="grid grid-cols-7 gap-1 text-center text-xs font-mono">
@@ -329,6 +332,7 @@
       <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-church text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Ceremonia Religiosa</h3>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mt-1 mb-3"></div>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 3:00 PM</p>
         <p class="text-[15px] text-gray-700 font-medium mb-1">Parroquia Santa Teresita del Niño Jesús</p>
         <p class="text-xs text-gray-500 font-semibold tracking-wide uppercase mb-4">Jesús María</p>
@@ -341,6 +345,7 @@
       <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-silver/40 shadow-sm reveal">
         <i class="fa-solid fa-glass-cheers text-2xl text-customBlue mb-2"></i>
         <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Recepción</h3>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mt-1 mb-3"></div>
         <p class="text-[15px] font-semibold text-customBlue my-1">Hora: 4:30 PM</p>
         <p class="text-[15px] text-gray-700 font-medium mb-1">Dolce Vita Rooftop, Edificio Trigoña II</p>
         <p class="text-xs text-gray-500 font-semibold tracking-wide uppercase mb-4">Jesús María</p>
@@ -368,15 +373,16 @@
           <i class="fa-solid fa-user-tie"></i>
         </div>
 
-        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase border-b border-silver/30 pb-2 mb-2">
+        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase pb-1 mb-1">
           Código de Vestimenta
         </h3>
+        <div class="w-20 h-[2px] bg-silver/40 mx-auto mb-3"></div>
         
-        <p class="font-serif text-[15px] tracking-widest text-silver/80 uppercase font-semibold mb-4">
+        <p class="font-serif text-[15px] tracking-widest text-silver/80 uppercase font-semibold mb-4 leading-relaxed">
           Formal
         </p>
 
-        <p class="font-serif text-[15px] text-silver-shine italic mb-4">
+        <p class="font-serif text-[15px] text-silver-shine italic mb-4 leading-relaxed">
           Evitar colores: <span class="font-semibold text-white">blanco, ivory, crema, beige, nude</span>
         </p>
 
@@ -391,10 +397,11 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- RECUADRO HORA DE DESCANSO 10:00 PM (LUNA 🌙, FONDO BLANCO Y LETRAS AZULES) -->
+      <!-- RECUADRO HORA DE DESCANSO 10:00 PM (LUNA 🌙) -->
       <div class="p-6 bg-white/90 backdrop-blur-sm rounded-2xl border border-silver/40 text-center reveal flex flex-col items-center shadow-sm">
         <i class="fa-solid fa-moon text-customBlue text-xl mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Horario de recepción</h3>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Horario de recepción</h3>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mt-1 mb-3"></div>
         <p class="font-serif italic text-lg sm:text-xl text-gray-700 leading-relaxed max-w-sm">
           "Como nuestros dos pequeños nos estarán acompañando durante el día, a las 10:00 p. m. daremos por concluida la recepción para respetar la hora de descanso y sueño de Gabriel y Julián. ¡Gracias por acompañarnos en esta tarde tan especial!"
         </p>
@@ -411,15 +418,16 @@
 
     </section>
 
-    <!-- ==================== UN DETALLE ESPECIAL (NUEVO CORTE EN AZUL A ANCHO COMPLETO) ==================== -->
+    <!-- ==================== UN DETALLE ESPECIAL (CORTE EN AZUL A ANCHO COMPLETO) ==================== -->
     <section class="bg-customBlue text-silver py-12 px-6 text-center border-y border-silver/20 shadow-inner">
       <div class="max-w-xs mx-auto text-center reveal">
         <div class="flex items-center justify-center text-silver-shine text-2xl mb-3 opacity-90">
           <i class="fa-solid fa-heart"></i>
         </div>
-        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase border-b border-silver/30 pb-2 mb-4">
+        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase pb-1 mb-1">
           Un detalle especial
         </h3>
+        <div class="w-20 h-[2px] bg-silver/40 mx-auto mb-4"></div>
         <p class="font-serif italic text-lg sm:text-xl text-silver-shine leading-relaxed">
           "¡Amamos a los pequeños de la casa! Sin embargo, para esta ocasión y dado que la recepción será en una terraza de azotea, hemos preparado un evento orientado a adultos (a excepción de nuestros dos bebés). Queremos que los papás y mamás invitados puedan relajarse y disfrutar al máximo de la tarde con nosotros."
         </p>
@@ -432,7 +440,8 @@
       <!-- Mesa de Regalos -->
       <div class="reveal">
         <i class="fa-solid fa-gift text-2xl text-customBlue mb-2"></i>
-        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider mb-3">Mesa de Regalos</h3>
+        <h3 class="font-serif text-lg font-bold text-customBlue uppercase tracking-wider">Mesa de Regalos</h3>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mt-1 mb-3"></div>
         
         <p class="font-serif italic text-lg sm:text-xl text-gray-800 my-3 leading-relaxed">
           "Lo más valioso para nosotros será contar con su compañía y compartir juntos este día tan especial. Si desean hacernos llegar un detalle, cualquier gesto será recibido con mucho amor y agradecimiento. Para quienes prefieran hacerlo de una manera más práctica, les compartimos nuestras cuentas para un envio mas directo:"
@@ -458,13 +467,14 @@
       <!-- RSVP -->
       <div class="reveal max-w-xs mx-auto">
         <div class="bg-white/95 backdrop-blur-md p-6 rounded-3xl border-2 border-customBlue/20 shadow-xl text-left">
-          <h3 class="font-serif text-2xl font-bold text-customBlue text-center mb-5 tracking-wide">
+          <h3 class="font-serif text-2xl font-bold text-customBlue text-center tracking-wide">
             Confirmación de asistencia
           </h3>
+          <div class="w-24 h-[2px] bg-customBlue/40 mx-auto mt-1 mb-5"></div>
 
           <form id="rsvpForm" onsubmit="sendRSVP(event)" class="space-y-4">
             <div>
-              <label for="guestName" class="block font-serif italic text-base text-gray-700 mb-1">
+              <label for="guestName" class="block font-serif italic text-base text-gray-700 mb-1 leading-relaxed">
                 Tu nombre
               </label>
               <input type="text" id="guestName" required placeholder="Escribe tu nombre completo aquí..." 
@@ -472,7 +482,7 @@
             </div>
 
             <div class="pt-1">
-              <p class="font-serif italic text-base text-gray-700 mb-2">
+              <p class="font-serif italic text-base text-gray-700 mb-2 leading-relaxed">
                 ¿Podrás acompañarnos en nuestro gran día?
               </p>
               
@@ -496,8 +506,8 @@
               <i class="fa-brands fa-whatsapp text-lg"></i> Click aquí para confirmar
             </button>
             
-            <p class="font-serif italic text-lg text-gray-700 text-center leading-relaxed pt-3">
-              Con mucho cariño, te agradecemos que nos confirmes tu asistencia antes del 15 de noviembre.
+            <p class="font-serif italic text-xl text-gray-800 text-center leading-relaxed pt-3">
+              Con mucho cariño, te agradecemos que nos <span class="font-bold">confirmes tu asistencia antes del 15 de noviembre</span>.
             </p>
           </form>
         </div>
@@ -505,7 +515,7 @@
 
     </section>
 
-    <!-- ==================== SECCIÓN FINAL SIN MONOGRAMA ==================== -->
+    <!-- ==================== SECCIÓN FINAL ==================== -->
     <section class="px-6 pt-6 pb-10 text-center space-y-8 border-t border-silver/20">
       
       <!-- Foto Portada Familiar -->
@@ -523,6 +533,7 @@
         <p class="font-serif text-2xl font-bold text-customBlue tracking-wide pt-2">
           ¡Te esperamos!
         </p>
+        <div class="w-20 h-[2px] bg-customBlue/40 mx-auto mt-2"></div>
       </div>
 
     </section>
@@ -664,13 +675,25 @@
     }
 
     function checkReveal() {
-      const reveals = document.querySelectorAll('.reveal');
       const windowHeight = window.innerHeight;
-      
+
+      // Manejo dinámico de animación de entrada y salida del Héroe al subir/bajar
+      const heroHeader = document.getElementById('heroHeader');
+      if (heroHeader) {
+        const heroRect = heroHeader.getBoundingClientRect();
+        if (heroRect.bottom > 150) {
+          document.getElementById('mainContainer').classList.add('hero-active');
+        } else {
+          document.getElementById('mainContainer').classList.remove('hero-active');
+        }
+      }
+
+      // Animación ágil para los elementos con la clase .reveal
+      const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(el => {
         const elementTop = el.getBoundingClientRect().top;
         const elementBottom = el.getBoundingClientRect().bottom;
-        const elementVisible = 100;
+        const elementVisible = 30; // Revelado súper rápido al scroolear
         
         if (elementTop < windowHeight - elementVisible && elementBottom > 0) {
           el.classList.add('active');
