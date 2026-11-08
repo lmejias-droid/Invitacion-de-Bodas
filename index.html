@@ -460,7 +460,7 @@
 
       <div class="w-12 h-[1px] bg-silver/50 mx-auto reveal"></div>
 
-      <!-- RSVP (AHORA EN CUADRO AZUL COMPATIBLE Y UNIFORME) -->
+      <!-- RSVP (DOS BOTONES PARA GIULIANA O LUIS) -->
       <div class="reveal max-w-xs mx-auto">
         <div class="bg-customBlue text-silver p-6 rounded-3xl border border-silver/30 shadow-xl text-left">
           <h3 class="font-serif text-2xl font-bold text-silver-light text-center tracking-wide">
@@ -468,7 +468,7 @@
           </h3>
           <div class="w-24 h-[2px] bg-silver/40 mx-auto mt-1 mb-5"></div>
 
-          <form id="rsvpForm" onsubmit="sendRSVP(event)" class="space-y-4">
+          <form id="rsvpForm" onsubmit="event.preventDefault();" class="space-y-4">
             <div>
               <label for="guestName" class="block font-serif italic text-base text-silver-shine mb-1 leading-relaxed">
                 Tu nombre
@@ -497,10 +497,18 @@
               </div>
             </div>
 
-            <button type="submit" 
-              class="w-full py-3 px-4 mt-4 bg-silver text-customBlue font-serif italic text-base font-bold rounded-2xl shadow-lg hover:bg-silver-shine active:scale-[0.98] transition-all border border-silver/50 flex items-center justify-center gap-2">
-              <i class="fa-brands fa-whatsapp text-lg"></i> Click aquí para confirmar
-            </button>
+            <p class="font-serif italic text-xs text-silver/70 text-center pt-2">¿A quién deseas enviar tu confirmación?</p>
+
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button type="button" onclick="sendRSVP('giuliana')" 
+                class="w-full py-3 px-2 bg-silver text-customBlue font-serif italic text-xs sm:text-sm font-bold rounded-2xl shadow-lg hover:bg-silver-shine active:scale-[0.98] transition-all border border-silver/50 flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-base"></i> A Giuliana
+              </button>
+              <button type="button" onclick="sendRSVP('luis')" 
+                class="w-full py-3 px-2 bg-silver text-customBlue font-serif italic text-xs sm:text-sm font-bold rounded-2xl shadow-lg hover:bg-silver-shine active:scale-[0.98] transition-all border border-silver/50 flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-base"></i> A Luis
+              </button>
+            </div>
             
             <p class="font-serif italic text-xl text-silver-shine text-center leading-relaxed pt-3">
               Con mucho cariño, te agradecemos que nos <span class="font-bold text-white">confirmes tu asistencia antes del 15 de noviembre</span>.
@@ -591,8 +599,7 @@
       }
     }
 
-    function sendRSVP(event) {
-      event.preventDefault();
+    function sendRSVP(target) {
       const nameInput = document.getElementById('guestName').value.trim();
 
       if (!nameInput) {
@@ -615,10 +622,9 @@
       const phoneGiuliana = "51986247483";
       const phoneLuis = "51961870511";
 
-      window.open(`https://wa.me/${phoneLuis}?text=${encodedMsg}`, '_blank');
-      setTimeout(() => {
-        window.open(`https://wa.me/${phoneGiuliana}?text=${encodedMsg}`, '_blank');
-      }, 1000);
+      const selectedPhone = (target === 'giuliana') ? phoneGiuliana : phoneLuis;
+
+      window.open(`https://wa.me/${selectedPhone}?text=${encodedMsg}`, '_blank');
     }
 
     function openEnvelope() {
