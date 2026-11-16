@@ -166,14 +166,14 @@
   <div class="w-full max-w-md luxury-pressed-paper min-h-screen shadow-2xl relative overflow-x-hidden mx-auto" id="mainContainer">
 
     <!-- Capa del Sobre Transparente con Animación 3D -->
-    <div id="envelopeScreen" onclick="openEnvelope()" class="fixed inset-0 z-50 flex items-center justify-center bg-transparent gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
+    <div id="envelopeScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-transparent gatefold-container overflow-hidden cursor-pointer transition-opacity duration-1000">
       
       <!-- Sombra interior disipada -->
       <div id="innerShadow" class="inner-shadow absolute inset-0 bg-black/60 pointer-events-none z-10 opacity-100"></div>
 
       <!-- Solapas -->
-      <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/20 z-20"></div>
-      <div id="doorRight" class="door-right absolute top-0 right-0 w-1/2 h-full shadow-2xl border-l border-gray-400/20 z-20"></div>
+      <div id="doorLeft" class="door-left absolute top-0 left-0 w-1/2 h-full shadow-2xl border-r border-gray-400/20 z-20 pointer-events-none"></div>
+      <div id="doorRight" class="door-right absolute top-0 right-0 w-1/2 h-full shadow-2xl border-l border-gray-400/20 z-20 pointer-events-none"></div>
 
     </div>
 
@@ -428,4 +428,7 @@
         <div class="flex items-center justify-center text-silver-shine text-2xl mb-3 opacity-90">
           <i class="fa-solid fa-heart"></i>
         </div>
-        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase pb-1 mb
+        <h3 class="font-serif text-xl font-semibold tracking-wider text-silver-light uppercase pb-1 mb-1">
+          Un detalle especial
+        </h3>
+        <div
